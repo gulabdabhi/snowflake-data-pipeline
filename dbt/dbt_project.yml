@@ -1,0 +1,21 @@
+name: 'sales_pipeline'
+version: '1.0.0'
+config-version: 2
+profile: 'sales_pipeline'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+models:
+  sales_pipeline:
+    staging:
+      +materialized: view
+      +schema: SILVER
+    marts:
+      dimensions:
+        +materialized: table
+        +schema: GOLD
+      facts:
+        +materialized: incremental
+        +schema: GOLD

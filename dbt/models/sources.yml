@@ -1,0 +1,70 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: SALES_DEV
+    schema: BRONZE
+    description: "Raw data ingested from CSV files via internal stage"
+    tables:
+      - name: REGION_MASTER
+        description: "Geographic region definitions"
+        columns:
+          - name: REGION_CODE
+            tests: [not_null]
+      - name: COUNTRY_MASTER
+        description: "Country reference data with region and currency mappings"
+        columns:
+          - name: COUNTRY_CODE
+            tests: [not_null]
+      - name: CURRENCY_MASTER
+        description: "Currency reference data"
+        columns:
+          - name: CURRENCY_CODE
+            tests: [not_null]
+      - name: TAX_MASTER
+        description: "Tax configuration by country"
+        columns:
+          - name: TAX_CODE
+            tests: [not_null]
+      - name: PRODUCT_CATEGORY_MASTER
+        description: "Product category hierarchy - top level"
+        columns:
+          - name: CATEGORY_CODE
+            tests: [not_null]
+      - name: PRODUCT_FAMILY_MASTER
+        description: "Product family - second level"
+        columns:
+          - name: FAMILY_CODE
+            tests: [not_null]
+      - name: PRODUCT_MODEL_MASTER
+        description: "Product model - third level"
+        columns:
+          - name: MODEL_CODE
+            tests: [not_null]
+      - name: PRODUCT_SKU_MASTER
+        description: "Product SKU - lowest grain"
+        columns:
+          - name: SKU_CODE
+            tests: [not_null]
+      - name: PRODUCT_COUNTRY_AVAILABILITY
+        description: "Product availability by country"
+      - name: STORE_MASTER
+        description: "Store location and operational data"
+        columns:
+          - name: STORE_CODE
+            tests: [not_null]
+      - name: CUSTOMER_MASTER
+        description: "Customer demographics and loyalty"
+        columns:
+          - name: CUSTOMER_ID
+            tests: [not_null]
+      - name: SALES_HEADER
+        description: "Sales transaction headers"
+        columns:
+          - name: TRANSACTION_ID
+            tests: [not_null]
+      - name: SALES_ITEM
+        description: "Sales transaction line items"
+        columns:
+          - name: TRANSACTION_LINE_ID
+            tests: [not_null]

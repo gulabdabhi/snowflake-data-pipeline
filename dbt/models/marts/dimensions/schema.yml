@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Customer dimension with demographics and loyalty (SCD2)"
+    columns:
+      - name: customer_dim_key
+        description: "Hash-based surrogate key"
+        tests: [not_null, unique]
+      - name: customer_id
+        description: "Business key - unique customer UUID"
+        tests: [not_null]
+
+  - name: dim_product
+    description: "Product dimension with full hierarchy: Category > Family > Model > SKU"
+    columns:
+      - name: product_dim_key
+        description: "Hash-based surrogate key"
+        tests: [not_null, unique]
+      - name: sku_code
+        description: "Stock keeping unit code - lowest grain"
+        tests: [not_null]
+
+  - name: dim_store
+    description: "Store dimension with location and operational attributes"
+    columns:
+      - name: store_dim_key
+        description: "Hash-based surrogate key"
+        tests: [not_null, unique]
+      - name: store_code
+        description: "Unique store business key"
+        tests: [not_null]
+
+  - name: dim_country
+    description: "Country dimension combining region, currency, and tax"
+    columns:
+      - name: country_dim_key
+        description: "Hash-based surrogate key"
+        tests: [not_null, unique]
+      - name: country_code
+        description: "ISO country code business key"
+        tests: [not_null]
+
+  - name: dim_date
+    description: "Calendar and fiscal date dimension (2020-2029)"
+    columns:
+      - name: date_dim_key
+        description: "Hash-based surrogate key"
+        tests: [not_null, unique]
+      - name: date_key
+        description: "Calendar date"
+        tests: [not_null]

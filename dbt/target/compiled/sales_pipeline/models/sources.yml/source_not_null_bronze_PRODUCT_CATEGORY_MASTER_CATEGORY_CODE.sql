@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select CATEGORY_CODE
+from SALES_DEV.BRONZE.PRODUCT_CATEGORY_MASTER
+where CATEGORY_CODE is null
+
+

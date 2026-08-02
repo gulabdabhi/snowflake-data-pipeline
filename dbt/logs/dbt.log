@@ -1,0 +1,2527 @@
+
+
+============================== 15:56:03.024567 | 55811d6b-3927-4fbf-adeb-fb266535ce6c ==============================
+[0m15:56:03.024567 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m15:56:03.025786 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': '/tmp/dbt/logs', 'profiles_dir': '/tmp/dbt/', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt ', 'static_parser': 'True', 'log_format': 'default', 'target_path': '/tmp/dbt/target/', 'introspect': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m15:56:03.328842 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m15:56:03.882191 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m15:56:03.883908 [info ] [Dummy-1   ]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m15:56:05.881889 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m15:56:05.884269 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m15:56:05.931673 [info ] [Dummy-1   ]: Found 21 models, 37 data tests, 13 sources, 474 macros
+[0m15:56:05.935461 [info ] [Dummy-1   ]: 
+[0m15:56:05.936071 [info ] [Dummy-1   ]: Concurrency: 8 threads (target='dev')
+[0m15:56:05.936545 [info ] [Dummy-1   ]: 
+[0m15:56:05.937387 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m15:56:05.945093 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SALES_DEV'
+[0m15:56:05.947103 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SALES_DEV'
+[0m15:56:06.037854 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV"
+[0m15:56:06.038624 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV"
+[0m15:56:06.039227 [debug] [ThreadPool]: On list_SALES_DEV: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV"} */
+show terse schemas in database SALES_DEV
+    limit 10000
+[0m15:56:06.039775 [debug] [ThreadPool]: On list_SALES_DEV: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV"} */
+show terse schemas in database SALES_DEV
+    limit 10000
+[0m15:56:06.040278 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:56:06.040753 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:56:06.530520 [debug] [ThreadPool]: SQL status: SUCCESS 8 in 0.490 seconds
+[0m15:56:06.614919 [debug] [ThreadPool]: SQL status: SUCCESS 8 in 0.574 seconds
+[0m15:56:06.620562 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_SALES_DEV, now list_SALES_DEV_GOLD_GOLD)
+[0m15:56:06.622473 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_SALES_DEV, now list_SALES_DEV_GOLD_SILVER)
+[0m15:56:06.636544 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_GOLD"
+[0m15:56:06.640678 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_SILVER"
+[0m15:56:06.641387 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_GOLD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_GOLD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m15:56:06.641928 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_SILVER: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_SILVER"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m15:56:06.642462 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:56:06.642972 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:56:07.274982 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.632 seconds
+[0m15:56:07.275772 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.633 seconds
+[0m15:56:07.280521 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_GOLD"
+[0m15:56:07.282597 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_SILVER"
+[0m15:56:07.284824 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_GOLD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_GOLD"} */
+show objects in SALES_DEV.GOLD_GOLD
+    limit 10000
+    
+;
+[0m15:56:07.285478 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_SILVER: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_SILVER"} */
+show objects in SALES_DEV.GOLD_SILVER
+    limit 10000
+    
+;
+[0m15:56:07.481834 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.196 seconds
+[0m15:56:07.484245 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_GOLD"
+[0m15:56:07.484824 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_GOLD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_GOLD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m15:56:07.501298 [debug] [ThreadPool]: SQL status: SUCCESS 12 in 0.215 seconds
+[0m15:56:07.503839 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_SILVER"
+[0m15:56:07.504433 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_SILVER: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_SILVER"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m15:56:07.584312 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.079 seconds
+[0m15:56:07.585224 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.100 seconds
+[0m15:56:07.611992 [debug] [Thread-2 (]: Began running node model.sales_pipeline.dim_date
+[0m15:56:07.612677 [debug] [Thread-3 (]: Began running node model.sales_pipeline.stg_country_master
+[0m15:56:07.613368 [debug] [Thread-4 (]: Began running node model.sales_pipeline.stg_currency_master
+[0m15:56:07.613971 [debug] [Thread-5 (]: Began running node model.sales_pipeline.stg_customer_master
+[0m15:56:07.614556 [debug] [Thread-6 (]: Began running node model.sales_pipeline.stg_product_category_master
+[0m15:56:07.615089 [debug] [Thread-7 (]: Began running node model.sales_pipeline.stg_product_family_master
+[0m15:56:07.615647 [debug] [Thread-8 (]: Began running node model.sales_pipeline.stg_product_model_master
+[0m15:56:07.616321 [info ] [Thread-2 (]: 1 of 21 START sql table model GOLD_GOLD.dim_date ............................... [RUN]
+[0m15:56:07.616993 [debug] [Thread-9 (]: Began running node model.sales_pipeline.stg_product_sku_master
+[0m15:56:07.617708 [info ] [Thread-3 (]: 2 of 21 START sql view model GOLD_SILVER.stg_country_master .................... [RUN]
+[0m15:56:07.618400 [info ] [Thread-4 (]: 3 of 21 START sql view model GOLD_SILVER.stg_currency_master ................... [RUN]
+[0m15:56:07.619075 [info ] [Thread-5 (]: 4 of 21 START sql view model GOLD_SILVER.stg_customer_master ................... [RUN]
+[0m15:56:07.619779 [info ] [Thread-6 (]: 5 of 21 START sql view model GOLD_SILVER.stg_product_category_master ........... [RUN]
+[0m15:56:07.620436 [info ] [Thread-7 (]: 6 of 21 START sql view model GOLD_SILVER.stg_product_family_master ............. [RUN]
+[0m15:56:07.621217 [info ] [Thread-8 (]: 7 of 21 START sql view model GOLD_SILVER.stg_product_model_master .............. [RUN]
+[0m15:56:07.621960 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_SALES_DEV_GOLD_SILVER, now model.sales_pipeline.dim_date)
+[0m15:56:07.622614 [info ] [Thread-9 (]: 8 of 21 START sql view model GOLD_SILVER.stg_product_sku_master ................ [RUN]
+[0m15:56:07.623315 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_SALES_DEV_GOLD_GOLD, now model.sales_pipeline.stg_country_master)
+[0m15:56:07.623991 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.sales_pipeline.stg_currency_master'
+[0m15:56:07.624640 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.sales_pipeline.stg_customer_master'
+[0m15:56:07.625405 [debug] [Thread-6 (]: Acquiring new snowflake connection 'model.sales_pipeline.stg_product_category_master'
+[0m15:56:07.626047 [debug] [Thread-7 (]: Acquiring new snowflake connection 'model.sales_pipeline.stg_product_family_master'
+[0m15:56:07.626680 [debug] [Thread-8 (]: Acquiring new snowflake connection 'model.sales_pipeline.stg_product_model_master'
+[0m15:56:07.627188 [debug] [Thread-2 (]: Began compiling node model.sales_pipeline.dim_date
+[0m15:56:07.627855 [debug] [Thread-9 (]: Acquiring new snowflake connection 'model.sales_pipeline.stg_product_sku_master'
+[0m15:56:07.628352 [debug] [Thread-3 (]: Began compiling node model.sales_pipeline.stg_country_master
+[0m15:56:07.628864 [debug] [Thread-4 (]: Began compiling node model.sales_pipeline.stg_currency_master
+[0m15:56:07.629426 [debug] [Thread-5 (]: Began compiling node model.sales_pipeline.stg_customer_master
+[0m15:56:07.629912 [debug] [Thread-6 (]: Began compiling node model.sales_pipeline.stg_product_category_master
+[0m15:56:07.630384 [debug] [Thread-7 (]: Began compiling node model.sales_pipeline.stg_product_family_master
+[0m15:56:07.630838 [debug] [Thread-8 (]: Began compiling node model.sales_pipeline.stg_product_model_master
+[0m15:56:07.640117 [debug] [Thread-2 (]: Writing injected SQL for node "model.sales_pipeline.dim_date"
+[0m15:56:07.640755 [debug] [Thread-9 (]: Began compiling node model.sales_pipeline.stg_product_sku_master
+[0m15:56:07.646176 [debug] [Thread-3 (]: Writing injected SQL for node "model.sales_pipeline.stg_country_master"
+[0m15:56:07.651464 [debug] [Thread-4 (]: Writing injected SQL for node "model.sales_pipeline.stg_currency_master"
+[0m15:56:07.656983 [debug] [Thread-5 (]: Writing injected SQL for node "model.sales_pipeline.stg_customer_master"
+[0m15:56:07.663759 [debug] [Thread-6 (]: Writing injected SQL for node "model.sales_pipeline.stg_product_category_master"
+[0m15:56:07.669113 [debug] [Thread-7 (]: Writing injected SQL for node "model.sales_pipeline.stg_product_family_master"
+[0m15:56:07.674594 [debug] [Thread-8 (]: Writing injected SQL for node "model.sales_pipeline.stg_product_model_master"
+[0m15:56:07.680117 [debug] [Thread-9 (]: Writing injected SQL for node "model.sales_pipeline.stg_product_sku_master"
+[0m15:56:07.681652 [debug] [Thread-2 (]: Began executing node model.sales_pipeline.dim_date
+[0m15:56:07.682502 [debug] [Thread-3 (]: Began executing node model.sales_pipeline.stg_country_master
+[0m15:56:07.683277 [debug] [Thread-4 (]: Began executing node model.sales_pipeline.stg_currency_master
+[0m15:56:07.684117 [debug] [Thread-5 (]: Began executing node model.sales_pipeline.stg_customer_master
+[0m15:56:07.684958 [debug] [Thread-6 (]: Began executing node model.sales_pipeline.stg_product_category_master
+[0m15:56:07.686055 [debug] [Thread-7 (]: Began executing node model.sales_pipeline.stg_product_family_master
+[0m15:56:07.686818 [debug] [Thread-8 (]: Began executing node model.sales_pipeline.stg_product_model_master
+[0m15:56:07.704155 [debug] [Thread-9 (]: Began executing node model.sales_pipeline.stg_product_sku_master
+[0m15:56:07.732173 [debug] [Thread-2 (]: Writing runtime sql for node "model.sales_pipeline.dim_date"
+[0m15:56:07.773053 [debug] [Thread-3 (]: Writing runtime sql for node "model.sales_pipeline.stg_country_master"
+[0m15:56:07.783721 [debug] [Thread-4 (]: Writing runtime sql for node "model.sales_pipeline.stg_currency_master"
+[0m15:56:07.788590 [debug] [Thread-5 (]: Writing runtime sql for node "model.sales_pipeline.stg_customer_master"
+[0m15:56:07.793642 [debug] [Thread-6 (]: Writing runtime sql for node "model.sales_pipeline.stg_product_category_master"
+[0m15:56:07.799716 [debug] [Thread-7 (]: Writing runtime sql for node "model.sales_pipeline.stg_product_family_master"
+[0m15:56:07.804617 [debug] [Thread-8 (]: Writing runtime sql for node "model.sales_pipeline.stg_product_model_master"
+[0m15:56:07.809657 [debug] [Thread-9 (]: Writing runtime sql for node "model.sales_pipeline.stg_product_sku_master"
+[0m15:56:07.812267 [debug] [Thread-2 (]: Using snowflake connection "model.sales_pipeline.dim_date"
+[0m15:56:07.814899 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.stg_country_master"
+[0m15:56:07.816641 [debug] [Thread-4 (]: Using snowflake connection "model.sales_pipeline.stg_currency_master"
+[0m15:56:07.818926 [debug] [Thread-5 (]: Using snowflake connection "model.sales_pipeline.stg_customer_master"
+[0m15:56:07.820718 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.stg_product_category_master"
+[0m15:56:07.822525 [debug] [Thread-7 (]: Using snowflake connection "model.sales_pipeline.stg_product_family_master"
+[0m15:56:07.824358 [debug] [Thread-8 (]: Using snowflake connection "model.sales_pipeline.stg_product_model_master"
+[0m15:56:07.825354 [debug] [Thread-2 (]: On model.sales_pipeline.dim_date: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.dim_date"} */
+create or replace transient table SALES_DEV.GOLD_GOLD.dim_date
+         as
+        (-- DIM_DATE: Calendar and fiscal date dimension
+
+
+with date_spine as (
+    select
+        dateadd(day, seq4(), '2020-01-01')::date as date_key
+    from table(generator(rowcount => 3653))
+)
+
+select
+    sha2(to_varchar(date_key, 'YYYYMMDD'), 256) as date_dim_key,
+    date_key,
+    year(date_key) as year_number,
+    quarter(date_key) as quarter_number,
+    month(date_key) as month_number,
+    weekofyear(date_key) as week_number,
+    dayofyear(date_key) as day_of_year,
+    day(date_key) as day_of_month,
+    dayofweek(date_key) as day_of_week,
+    to_varchar(date_key, 'YYYY') as year_name,
+    'Q' || quarter(date_key) as quarter_name,
+    monthname(date_key) as month_name,
+    left(monthname(date_key), 3) as month_short_name,
+    dayname(date_key) as day_name,
+    to_varchar(date_key, 'YYYY-MM') as year_month,
+    to_varchar(date_key, 'YYYY') || '-Q' || quarter(date_key) as year_quarter,
+    case
+        when month(date_key) >= 4 then year(date_key)
+        else year(date_key) - 1
+    end as fiscal_year,
+    case
+        when month(date_key) >= 4 then ceil((month(date_key) - 3) / 3.0)
+        else ceil((month(date_key) + 9) / 3.0)
+    end::int as fiscal_quarter,
+    case when dayofweek(date_key) in (0, 6) then true else false end as is_weekend,
+    false as is_holiday
+
+from date_spine
+        );
+[0m15:56:07.827020 [debug] [Thread-9 (]: Using snowflake connection "model.sales_pipeline.stg_product_sku_master"
+[0m15:56:07.827726 [debug] [Thread-3 (]: On model.sales_pipeline.stg_country_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_country_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_country_master
+  
+   as (
+    -- Deduplicated country master with data quality validation
+
+
+select
+    country_code,
+    country_name,
+    region_code,
+    currency_code,
+    tax_code,
+    primary_language,
+    timezone,
+    ecommerce_supported,
+    retail_store_supported,
+    market_tier,
+    case
+        when country_code is null then false
+        when country_name is null or trim(country_name) = '' then false
+        when region_code is null then false
+        when currency_code is null then false
+        when ecommerce_supported not in ('Y', 'N') then false
+        when retail_store_supported not in ('Y', 'N') then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.COUNTRY_MASTER
+qualify row_number() over (
+    partition by country_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:07.828403 [debug] [Thread-4 (]: On model.sales_pipeline.stg_currency_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_currency_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_currency_master
+  
+   as (
+    -- Deduplicated currency master with data quality validation
+
+
+select
+    currency_code,
+    currency_name,
+    currency_symbol,
+    minor_unit,
+    is_active,
+    effective_start_date,
+    effective_end_date,
+    created_at,
+    source_system,
+    case
+        when currency_code is null then false
+        when currency_name is null or trim(currency_name) = '' then false
+        when is_active not in ('Y', 'N') then false
+        when effective_start_date is null then false
+        when effective_end_date < effective_start_date then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.CURRENCY_MASTER
+qualify row_number() over (
+    partition by currency_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:07.829179 [debug] [Thread-5 (]: On model.sales_pipeline.stg_customer_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_customer_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_customer_master
+  
+   as (
+    -- Deduplicated customer master with data quality validation
+
+
+select
+    customer_id,
+    customer_number,
+    first_name,
+    last_name,
+    concat(first_name, ' ', last_name) as full_name,
+    gender,
+    date_of_birth,
+    email,
+    phone_number,
+    street_address,
+    city,
+    state_province,
+    postal_code,
+    country_code,
+    country_name,
+    region,
+    preferred_language,
+    customer_segment,
+    loyalty_tier,
+    registration_date,
+    is_active,
+    source_system,
+    record_source,
+    case
+        when customer_id is null then false
+        when first_name is null or trim(first_name) = '' then false
+        when last_name is null or trim(last_name) = '' then false
+        when email is null then false
+        when country_code is null then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.CUSTOMER_MASTER
+qualify row_number() over (
+    partition by customer_id
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:07.829885 [debug] [Thread-6 (]: On model.sales_pipeline.stg_product_category_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_product_category_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_product_category_master
+  
+   as (
+    -- Deduplicated product category master with data quality validation
+
+
+select
+    category_code,
+    category_name,
+    reporting_segment,
+    created_at,
+    source_system,
+    case
+        when category_code is null then false
+        when category_name is null or trim(category_name) = '' then false
+        when reporting_segment is null then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.PRODUCT_CATEGORY_MASTER
+qualify row_number() over (
+    partition by category_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:07.830553 [debug] [Thread-7 (]: On model.sales_pipeline.stg_product_family_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_product_family_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_product_family_master
+  
+   as (
+    -- Deduplicated product family master with data quality validation
+
+
+select
+    family_code,
+    family_name,
+    category_code,
+    launch_year,
+    created_at,
+    source_system,
+    case
+        when family_code is null then false
+        when family_name is null or trim(family_name) = '' then false
+        when category_code is null then false
+        when launch_year is null then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.PRODUCT_FAMILY_MASTER
+qualify row_number() over (
+    partition by family_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:07.831260 [debug] [Thread-8 (]: On model.sales_pipeline.stg_product_model_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_product_model_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_product_model_master
+  
+   as (
+    -- Deduplicated product model master with data quality validation
+
+
+select
+    model_code,
+    model_name,
+    family_code,
+    launch_date,
+    discontinue_date,
+    lifecycle_status,
+    created_at,
+    source_system,
+    case
+        when model_code is null then false
+        when model_name is null or trim(model_name) = '' then false
+        when family_code is null then false
+        when launch_date is null then false
+        when lifecycle_status not in ('ACTIVE', 'DISCONTINUED') then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.PRODUCT_MODEL_MASTER
+qualify row_number() over (
+    partition by model_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:07.831826 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m15:56:07.832401 [debug] [Thread-9 (]: On model.sales_pipeline.stg_product_sku_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_product_sku_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_product_sku_master
+  
+   as (
+    -- Deduplicated product SKU master with data quality validation
+
+
+select
+    sku_code,
+    model_code,
+    variant,
+    price_tier,
+    global_launch_date,
+    is_active,
+    created_at,
+    source_system,
+    case
+        when sku_code is null then false
+        when model_code is null then false
+        when variant is null or trim(variant) = '' then false
+        when price_tier not in ('Standard', 'Premium') then false
+        when global_launch_date is null then false
+        when is_active not in ('Y', 'N') then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.PRODUCT_SKU_MASTER
+qualify row_number() over (
+    partition by sku_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:07.833027 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:56:07.833534 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:56:07.834052 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m15:56:07.834542 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m15:56:07.835038 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m15:56:07.835575 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m15:56:07.836347 [debug] [Thread-9 (]: Opening a new connection, currently in state init
+[0m15:56:08.670301 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.836 seconds
+[0m15:56:08.694527 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.861 seconds
+[0m15:56:08.701054 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 0.865 seconds
+[0m15:56:08.708260 [info ] [Thread-6 (]: 5 of 21 OK created sql view model GOLD_SILVER.stg_product_category_master ...... [[32mSUCCESS 1[0m in 1.07s]
+[0m15:56:08.709223 [info ] [Thread-4 (]: 3 of 21 OK created sql view model GOLD_SILVER.stg_currency_master .............. [[32mSUCCESS 1[0m in 1.08s]
+[0m15:56:08.710052 [info ] [Thread-8 (]: 7 of 21 OK created sql view model GOLD_SILVER.stg_product_model_master ......... [[32mSUCCESS 1[0m in 1.08s]
+[0m15:56:08.710881 [debug] [Thread-6 (]: Finished running node model.sales_pipeline.stg_product_category_master
+[0m15:56:08.711655 [debug] [Thread-4 (]: Finished running node model.sales_pipeline.stg_currency_master
+[0m15:56:08.712351 [debug] [Thread-8 (]: Finished running node model.sales_pipeline.stg_product_model_master
+[0m15:56:08.713110 [debug] [Thread-6 (]: Began running node model.sales_pipeline.stg_region_master
+[0m15:56:08.713892 [debug] [Thread-4 (]: Began running node model.sales_pipeline.stg_sales_header
+[0m15:56:08.714593 [debug] [Thread-8 (]: Began running node model.sales_pipeline.stg_sales_item
+[0m15:56:08.715370 [info ] [Thread-6 (]: 9 of 21 START sql view model GOLD_SILVER.stg_region_master ..................... [RUN]
+[0m15:56:08.716075 [info ] [Thread-4 (]: 10 of 21 START sql view model GOLD_SILVER.stg_sales_header ..................... [RUN]
+[0m15:56:08.716755 [info ] [Thread-8 (]: 11 of 21 START sql view model GOLD_SILVER.stg_sales_item ....................... [RUN]
+[0m15:56:08.717542 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_product_category_master, now model.sales_pipeline.stg_region_master)
+[0m15:56:08.718165 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_currency_master, now model.sales_pipeline.stg_sales_header)
+[0m15:56:08.718966 [debug] [Thread-8 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_product_model_master, now model.sales_pipeline.stg_sales_item)
+[0m15:56:08.719785 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.886 seconds
+[0m15:56:08.720370 [debug] [Thread-6 (]: Began compiling node model.sales_pipeline.stg_region_master
+[0m15:56:08.721028 [debug] [Thread-4 (]: Began compiling node model.sales_pipeline.stg_sales_header
+[0m15:56:08.721640 [debug] [Thread-8 (]: Began compiling node model.sales_pipeline.stg_sales_item
+[0m15:56:08.724869 [info ] [Thread-5 (]: 4 of 21 OK created sql view model GOLD_SILVER.stg_customer_master .............. [[32mSUCCESS 1[0m in 1.10s]
+[0m15:56:08.730595 [debug] [Thread-6 (]: Writing injected SQL for node "model.sales_pipeline.stg_region_master"
+[0m15:56:08.731714 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.898 seconds
+[0m15:56:08.732477 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.896 seconds
+[0m15:56:08.737678 [debug] [Thread-4 (]: Writing injected SQL for node "model.sales_pipeline.stg_sales_header"
+[0m15:56:08.742803 [debug] [Thread-8 (]: Writing injected SQL for node "model.sales_pipeline.stg_sales_item"
+[0m15:56:08.743629 [debug] [Thread-5 (]: Finished running node model.sales_pipeline.stg_customer_master
+[0m15:56:08.744421 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.909 seconds
+[0m15:56:08.747919 [info ] [Thread-3 (]: 2 of 21 OK created sql view model GOLD_SILVER.stg_country_master ............... [[32mSUCCESS 1[0m in 1.12s]
+[0m15:56:08.748647 [debug] [Thread-6 (]: Began executing node model.sales_pipeline.stg_region_master
+[0m15:56:08.752005 [info ] [Thread-9 (]: 8 of 21 OK created sql view model GOLD_SILVER.stg_product_sku_master ........... [[32mSUCCESS 1[0m in 1.12s]
+[0m15:56:08.753133 [debug] [Thread-4 (]: Began executing node model.sales_pipeline.stg_sales_header
+[0m15:56:08.753972 [debug] [Thread-5 (]: Began running node model.sales_pipeline.stg_store_master
+[0m15:56:08.754500 [debug] [Thread-8 (]: Began executing node model.sales_pipeline.stg_sales_item
+[0m15:56:08.757911 [info ] [Thread-7 (]: 6 of 21 OK created sql view model GOLD_SILVER.stg_product_family_master ........ [[32mSUCCESS 1[0m in 1.13s]
+[0m15:56:08.758732 [debug] [Thread-3 (]: Finished running node model.sales_pipeline.stg_country_master
+[0m15:56:08.763565 [debug] [Thread-6 (]: Writing runtime sql for node "model.sales_pipeline.stg_region_master"
+[0m15:56:08.764366 [debug] [Thread-9 (]: Finished running node model.sales_pipeline.stg_product_sku_master
+[0m15:56:08.770760 [debug] [Thread-4 (]: Writing runtime sql for node "model.sales_pipeline.stg_sales_header"
+[0m15:56:08.771564 [info ] [Thread-5 (]: 12 of 21 START sql view model GOLD_SILVER.stg_store_master ..................... [RUN]
+[0m15:56:08.776457 [debug] [Thread-8 (]: Writing runtime sql for node "model.sales_pipeline.stg_sales_item"
+[0m15:56:08.777397 [debug] [Thread-7 (]: Finished running node model.sales_pipeline.stg_product_family_master
+[0m15:56:08.778107 [debug] [Thread-3 (]: Began running node model.sales_pipeline.stg_tax_master
+[0m15:56:08.779227 [debug] [Thread-9 (]: Began running node model.sales_pipeline.dim_customer
+[0m15:56:08.781024 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.stg_region_master"
+[0m15:56:08.782076 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_customer_master, now model.sales_pipeline.stg_store_master)
+[0m15:56:08.783899 [debug] [Thread-4 (]: Using snowflake connection "model.sales_pipeline.stg_sales_header"
+[0m15:56:08.786339 [debug] [Thread-8 (]: Using snowflake connection "model.sales_pipeline.stg_sales_item"
+[0m15:56:08.786904 [debug] [Thread-7 (]: Began running node model.sales_pipeline.dim_product
+[0m15:56:08.787604 [info ] [Thread-3 (]: 13 of 21 START sql view model GOLD_SILVER.stg_tax_master ....................... [RUN]
+[0m15:56:08.788316 [info ] [Thread-9 (]: 14 of 21 START sql table model GOLD_GOLD.dim_customer .......................... [RUN]
+[0m15:56:08.789073 [debug] [Thread-6 (]: On model.sales_pipeline.stg_region_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_region_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_region_master
+  
+   as (
+    -- Deduplicated region master with data quality validation
+
+
+select
+    region_code,
+    region_name,
+    is_active,
+    effective_start_date,
+    effective_end_date,
+    created_at,
+    source_system,
+    case
+        when region_code is null then false
+        when region_name is null or trim(region_name) = '' then false
+        when is_active not in ('Y', 'N') then false
+        when effective_start_date is null then false
+        when effective_end_date < effective_start_date then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.REGION_MASTER
+qualify row_number() over (
+    partition by region_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:08.789668 [debug] [Thread-5 (]: Began compiling node model.sales_pipeline.stg_store_master
+[0m15:56:08.790274 [debug] [Thread-4 (]: On model.sales_pipeline.stg_sales_header: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_sales_header"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_sales_header
+  
+   as (
+    -- Deduplicated sales header with data quality validation
+
+
+select
+    transaction_id,
+    transaction_number,
+    transaction_timestamp,
+    customer_id,
+    store_id,
+    channel_id,
+    payment_method,
+    currency,
+    gross_amount,
+    total_discount,
+    total_tax,
+    net_total,
+    created_at,
+    case
+        when transaction_id is null then false
+        when transaction_number is null then false
+        when customer_id is null then false
+        when store_id is null then false
+        when currency is null then false
+        when gross_amount < 0 then false
+        when total_discount < 0 then false
+        when total_tax < 0 then false
+        when net_total < 0 then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.SALES_HEADER
+qualify row_number() over (
+    partition by transaction_id
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:08.790900 [debug] [Thread-8 (]: On model.sales_pipeline.stg_sales_item: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_sales_item"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_sales_item
+  
+   as (
+    -- Deduplicated sales line items with data quality validation
+
+
+select
+    transaction_line_id,
+    transaction_id,
+    sku_code,
+    quantity,
+    unit_price,
+    discount_amount,
+    tax_amount,
+    line_total,
+    created_at,
+    case
+        when transaction_line_id is null then false
+        when transaction_id is null then false
+        when sku_code is null then false
+        when quantity is null or quantity <= 0 then false
+        when unit_price < 0 then false
+        when discount_amount < 0 then false
+        when tax_amount < 0 then false
+        when line_total < 0 then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.SALES_ITEM
+qualify row_number() over (
+    partition by transaction_line_id
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:08.791643 [info ] [Thread-7 (]: 15 of 21 START sql table model GOLD_GOLD.dim_product ........................... [RUN]
+[0m15:56:08.792349 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_country_master, now model.sales_pipeline.stg_tax_master)
+[0m15:56:08.793030 [debug] [Thread-9 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_product_sku_master, now model.sales_pipeline.dim_customer)
+[0m15:56:08.793577 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m15:56:08.798576 [debug] [Thread-5 (]: Writing injected SQL for node "model.sales_pipeline.stg_store_master"
+[0m15:56:08.799255 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:56:08.799796 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m15:56:08.800454 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_product_family_master, now model.sales_pipeline.dim_product)
+[0m15:56:08.801081 [debug] [Thread-3 (]: Began compiling node model.sales_pipeline.stg_tax_master
+[0m15:56:08.801597 [debug] [Thread-9 (]: Began compiling node model.sales_pipeline.dim_customer
+[0m15:56:08.802789 [debug] [Thread-5 (]: Began executing node model.sales_pipeline.stg_store_master
+[0m15:56:08.803474 [debug] [Thread-7 (]: Began compiling node model.sales_pipeline.dim_product
+[0m15:56:08.808625 [debug] [Thread-3 (]: Writing injected SQL for node "model.sales_pipeline.stg_tax_master"
+[0m15:56:08.813866 [debug] [Thread-9 (]: Writing injected SQL for node "model.sales_pipeline.dim_customer"
+[0m15:56:08.820375 [debug] [Thread-5 (]: Writing runtime sql for node "model.sales_pipeline.stg_store_master"
+[0m15:56:08.826369 [debug] [Thread-7 (]: Writing injected SQL for node "model.sales_pipeline.dim_product"
+[0m15:56:08.827538 [debug] [Thread-3 (]: Began executing node model.sales_pipeline.stg_tax_master
+[0m15:56:08.828545 [debug] [Thread-9 (]: Began executing node model.sales_pipeline.dim_customer
+[0m15:56:08.830720 [debug] [Thread-5 (]: Using snowflake connection "model.sales_pipeline.stg_store_master"
+[0m15:56:08.835311 [debug] [Thread-3 (]: Writing runtime sql for node "model.sales_pipeline.stg_tax_master"
+[0m15:56:08.835968 [debug] [Thread-7 (]: Began executing node model.sales_pipeline.dim_product
+[0m15:56:08.840776 [debug] [Thread-9 (]: Writing runtime sql for node "model.sales_pipeline.dim_customer"
+[0m15:56:08.841541 [debug] [Thread-5 (]: On model.sales_pipeline.stg_store_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_store_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_store_master
+  
+   as (
+    -- Deduplicated store master with data quality validation
+
+
+select
+    store_code,
+    store_name,
+    format_code,
+    country_code,
+    region_code,
+    state_code,
+    city,
+    postal_code,
+    address_line1,
+    latitude,
+    longitude,
+    tax_jurisdiction_code,
+    floor_area_sqft,
+    annual_rent_usd,
+    store_open_date,
+    store_close_date,
+    lifecycle_status,
+    is_active,
+    case
+        when store_code is null then false
+        when store_name is null or trim(store_name) = '' then false
+        when country_code is null then false
+        when format_code not in ('MALL', 'MINI', 'FLAGSHIP') then false
+        when is_active not in ('Y', 'N') then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.STORE_MASTER
+qualify row_number() over (
+    partition by store_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:08.846359 [debug] [Thread-7 (]: Writing runtime sql for node "model.sales_pipeline.dim_product"
+[0m15:56:08.848209 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.stg_tax_master"
+[0m15:56:08.849278 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m15:56:08.851077 [debug] [Thread-9 (]: Using snowflake connection "model.sales_pipeline.dim_customer"
+[0m15:56:08.852134 [debug] [Thread-3 (]: On model.sales_pipeline.stg_tax_master: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.stg_tax_master"} */
+create or replace   view SALES_DEV.GOLD_SILVER.stg_tax_master
+  
+   as (
+    -- Deduplicated tax master with data quality validation
+
+
+select
+    tax_code,
+    tax_type,
+    tax_rate,
+    tax_inclusive_flag,
+    effective_start_date,
+    effective_end_date,
+    is_active,
+    created_at,
+    source_system,
+    case
+        when tax_code is null then false
+        when tax_type is null or trim(tax_type) = '' then false
+        when tax_rate is null or tax_rate < 0 or tax_rate > 1 then false
+        when tax_inclusive_flag not in ('Y', 'N') then false
+        when is_active not in ('Y', 'N') then false
+        when effective_start_date is null then false
+        when effective_end_date < effective_start_date then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.TAX_MASTER
+qualify row_number() over (
+    partition by tax_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+[0m15:56:08.855631 [debug] [Thread-7 (]: Using snowflake connection "model.sales_pipeline.dim_product"
+[0m15:56:08.856466 [debug] [Thread-9 (]: On model.sales_pipeline.dim_customer: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.dim_customer"} */
+create or replace transient table SALES_DEV.GOLD_GOLD.dim_customer
+         as
+        (-- DIM_CUSTOMER: Customer dimension with demographics and loyalty
+
+
+select
+    sha2(concat(
+        coalesce(customer_id, ''),
+        coalesce(to_varchar(__bronze_load_ts, 'YYYY-MM-DD HH24:MI:SS.FF6'), '')
+    ), 256) as customer_dim_key,
+
+    customer_id,
+    customer_number,
+    first_name,
+    last_name,
+    full_name,
+    gender,
+    date_of_birth,
+    email,
+    phone_number,
+    street_address,
+    city,
+    state_province,
+    postal_code,
+    country_code,
+    country_name,
+    region,
+    preferred_language,
+    customer_segment,
+    loyalty_tier,
+    registration_date,
+    is_active,
+    source_system,
+    record_source,
+
+    __bronze_load_ts as effective_start_ts,
+    cast('9999-12-31 23:59:59' as timestamp_ntz) as effective_end_ts,
+    true as is_current
+
+from SALES_DEV.GOLD_SILVER.stg_customer_master
+where is_valid_record = true
+        );
+[0m15:56:08.857189 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:56:08.857847 [debug] [Thread-7 (]: On model.sales_pipeline.dim_product: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.dim_product"} */
+create or replace transient table SALES_DEV.GOLD_GOLD.dim_product
+         as
+        (-- DIM_PRODUCT: Full product hierarchy Category > Family > Model > SKU
+
+
+select
+    sha2(concat(
+        coalesce(s.sku_code, ''),
+        coalesce(to_varchar(s.__bronze_load_ts, 'YYYY-MM-DD HH24:MI:SS.FF6'), '')
+    ), 256) as product_dim_key,
+
+    s.sku_code,
+    s.variant,
+    s.price_tier,
+    s.global_launch_date as sku_launch_date,
+    s.is_active as sku_is_active,
+
+    m.model_code,
+    m.model_name,
+    m.launch_date as model_launch_date,
+    m.discontinue_date as model_discontinue_date,
+    m.lifecycle_status,
+
+    f.family_code,
+    f.family_name,
+    f.launch_year as family_launch_year,
+
+    c.category_code,
+    c.category_name,
+    c.reporting_segment,
+
+    s.__bronze_load_ts as effective_start_ts,
+    cast('9999-12-31 23:59:59' as timestamp_ntz) as effective_end_ts,
+    true as is_current
+
+from SALES_DEV.GOLD_SILVER.stg_product_sku_master s
+join SALES_DEV.GOLD_SILVER.stg_product_model_master m
+    on s.model_code = m.model_code and m.is_valid_record = true
+join SALES_DEV.GOLD_SILVER.stg_product_family_master f
+    on m.family_code = f.family_code and f.is_valid_record = true
+join SALES_DEV.GOLD_SILVER.stg_product_category_master c
+    on f.category_code = c.category_code and c.is_valid_record = true
+where s.is_valid_record = true
+        );
+[0m15:56:08.858494 [debug] [Thread-9 (]: Opening a new connection, currently in state init
+[0m15:56:08.859278 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m15:56:09.275281 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.443 seconds
+[0m15:56:09.278671 [info ] [Thread-2 (]: 1 of 21 OK created sql table model GOLD_GOLD.dim_date .......................... [[32mSUCCESS 1[0m in 1.66s]
+[0m15:56:09.280121 [debug] [Thread-2 (]: Finished running node model.sales_pipeline.dim_date
+[0m15:56:09.648065 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.854 seconds
+[0m15:56:09.651398 [info ] [Thread-6 (]: 9 of 21 OK created sql view model GOLD_SILVER.stg_region_master ................ [[32mSUCCESS 1[0m in 0.93s]
+[0m15:56:09.652183 [debug] [Thread-6 (]: Finished running node model.sales_pipeline.stg_region_master
+[0m15:56:09.676862 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 0.877 seconds
+[0m15:56:09.680573 [info ] [Thread-8 (]: 11 of 21 OK created sql view model GOLD_SILVER.stg_sales_item .................. [[32mSUCCESS 1[0m in 0.96s]
+[0m15:56:09.681455 [debug] [Thread-8 (]: Finished running node model.sales_pipeline.stg_sales_item
+[0m15:56:09.710377 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.853 seconds
+[0m15:56:09.713653 [info ] [Thread-3 (]: 13 of 21 OK created sql view model GOLD_SILVER.stg_tax_master .................. [[32mSUCCESS 1[0m in 0.92s]
+[0m15:56:09.714618 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.915 seconds
+[0m15:56:09.715404 [debug] [Thread-3 (]: Finished running node model.sales_pipeline.stg_tax_master
+[0m15:56:09.718529 [info ] [Thread-4 (]: 10 of 21 OK created sql view model GOLD_SILVER.stg_sales_header ................ [[32mSUCCESS 1[0m in 1.00s]
+[0m15:56:09.719372 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.870 seconds
+[0m15:56:09.720467 [debug] [Thread-2 (]: Began running node model.sales_pipeline.dim_country
+[0m15:56:09.721311 [debug] [Thread-4 (]: Finished running node model.sales_pipeline.stg_sales_header
+[0m15:56:09.724299 [info ] [Thread-5 (]: 12 of 21 OK created sql view model GOLD_SILVER.stg_store_master ................ [[32mSUCCESS 1[0m in 0.94s]
+[0m15:56:09.725202 [info ] [Thread-2 (]: 16 of 21 START sql table model GOLD_GOLD.dim_country ........................... [RUN]
+[0m15:56:09.726213 [debug] [Thread-5 (]: Finished running node model.sales_pipeline.stg_store_master
+[0m15:56:09.726907 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.dim_date, now model.sales_pipeline.dim_country)
+[0m15:56:09.727910 [debug] [Thread-8 (]: Began running node model.sales_pipeline.dim_store
+[0m15:56:09.728481 [debug] [Thread-2 (]: Began compiling node model.sales_pipeline.dim_country
+[0m15:56:09.729326 [info ] [Thread-8 (]: 17 of 21 START sql table model GOLD_GOLD.dim_store ............................. [RUN]
+[0m15:56:09.735393 [debug] [Thread-2 (]: Writing injected SQL for node "model.sales_pipeline.dim_country"
+[0m15:56:09.736178 [debug] [Thread-8 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_sales_item, now model.sales_pipeline.dim_store)
+[0m15:56:09.737167 [debug] [Thread-8 (]: Began compiling node model.sales_pipeline.dim_store
+[0m15:56:09.737741 [debug] [Thread-2 (]: Began executing node model.sales_pipeline.dim_country
+[0m15:56:09.742751 [debug] [Thread-8 (]: Writing injected SQL for node "model.sales_pipeline.dim_store"
+[0m15:56:09.747311 [debug] [Thread-2 (]: Writing runtime sql for node "model.sales_pipeline.dim_country"
+[0m15:56:09.748337 [debug] [Thread-8 (]: Began executing node model.sales_pipeline.dim_store
+[0m15:56:09.754905 [debug] [Thread-8 (]: Writing runtime sql for node "model.sales_pipeline.dim_store"
+[0m15:56:09.756959 [debug] [Thread-2 (]: Using snowflake connection "model.sales_pipeline.dim_country"
+[0m15:56:09.757876 [debug] [Thread-2 (]: On model.sales_pipeline.dim_country: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.dim_country"} */
+create or replace transient table SALES_DEV.GOLD_GOLD.dim_country
+         as
+        (-- DIM_COUNTRY: Geography dimension combining region, currency, and tax
+
+
+select
+    sha2(concat(
+        coalesce(c.country_code, ''),
+        coalesce(to_varchar(c.__bronze_load_ts, 'YYYY-MM-DD HH24:MI:SS.FF6'), '')
+    ), 256) as country_dim_key,
+
+    c.country_code,
+    c.country_name,
+    c.primary_language,
+    c.timezone,
+    c.market_tier,
+    c.ecommerce_supported,
+    c.retail_store_supported,
+
+    r.region_code,
+    r.region_name,
+
+    cu.currency_code,
+    cu.currency_name,
+    cu.currency_symbol,
+
+    t.tax_code,
+    t.tax_type,
+    t.tax_rate,
+    t.tax_inclusive_flag,
+
+    c.__bronze_load_ts as effective_start_ts,
+    cast('9999-12-31 23:59:59' as timestamp_ntz) as effective_end_ts,
+    true as is_current
+
+from SALES_DEV.GOLD_SILVER.stg_country_master c
+left join SALES_DEV.GOLD_SILVER.stg_region_master r
+    on c.region_code = r.region_code and r.is_valid_record = true
+left join SALES_DEV.GOLD_SILVER.stg_currency_master cu
+    on c.currency_code = cu.currency_code and cu.is_valid_record = true
+left join SALES_DEV.GOLD_SILVER.stg_tax_master t
+    on c.tax_code = t.tax_code and t.is_valid_record = true
+where c.is_valid_record = true
+        );
+[0m15:56:09.759460 [debug] [Thread-8 (]: Using snowflake connection "model.sales_pipeline.dim_store"
+[0m15:56:09.759969 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m15:56:09.760541 [debug] [Thread-8 (]: On model.sales_pipeline.dim_store: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.dim_store"} */
+create or replace transient table SALES_DEV.GOLD_GOLD.dim_store
+         as
+        (-- DIM_STORE: Store dimension with location and operational attributes
+
+
+select
+    sha2(concat(
+        coalesce(store_code, ''),
+        coalesce(to_varchar(__bronze_load_ts, 'YYYY-MM-DD HH24:MI:SS.FF6'), '')
+    ), 256) as store_dim_key,
+
+    store_code,
+    store_name,
+    format_code,
+    lifecycle_status,
+    country_code,
+    region_code,
+    state_code,
+    city,
+    postal_code,
+    address_line1,
+    latitude,
+    longitude,
+    tax_jurisdiction_code,
+    floor_area_sqft,
+    annual_rent_usd,
+    store_open_date,
+    store_close_date,
+    is_active,
+
+    __bronze_load_ts as effective_start_ts,
+    cast('9999-12-31 23:59:59' as timestamp_ntz) as effective_end_ts,
+    true as is_current
+
+from SALES_DEV.GOLD_SILVER.stg_store_master
+where is_valid_record = true
+        );
+[0m15:56:09.761345 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m15:56:11.223536 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 2.364 seconds
+[0m15:56:11.226997 [info ] [Thread-7 (]: 15 of 21 OK created sql table model GOLD_GOLD.dim_product ...................... [[32mSUCCESS 1[0m in 2.43s]
+[0m15:56:11.227750 [debug] [Thread-7 (]: Finished running node model.sales_pipeline.dim_product
+[0m15:56:11.292090 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 2.433 seconds
+[0m15:56:11.295262 [info ] [Thread-9 (]: 14 of 21 OK created sql table model GOLD_GOLD.dim_customer ..................... [[32mSUCCESS 1[0m in 2.50s]
+[0m15:56:11.296038 [debug] [Thread-9 (]: Finished running node model.sales_pipeline.dim_customer
+[0m15:56:11.678215 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 1.917 seconds
+[0m15:56:11.681488 [info ] [Thread-8 (]: 17 of 21 OK created sql table model GOLD_GOLD.dim_store ........................ [[32mSUCCESS 1[0m in 1.94s]
+[0m15:56:11.682296 [debug] [Thread-8 (]: Finished running node model.sales_pipeline.dim_store
+[0m15:56:12.268139 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 2.508 seconds
+[0m15:56:12.271306 [info ] [Thread-2 (]: 16 of 21 OK created sql table model GOLD_GOLD.dim_country ...................... [[32mSUCCESS 1[0m in 2.54s]
+[0m15:56:12.272095 [debug] [Thread-2 (]: Finished running node model.sales_pipeline.dim_country
+[0m15:56:12.273521 [debug] [Thread-6 (]: Began running node model.sales_pipeline.fact_sales_header
+[0m15:56:12.274460 [info ] [Thread-6 (]: 18 of 21 START sql incremental model GOLD_GOLD.fact_sales_header ............... [RUN]
+[0m15:56:12.275198 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_region_master, now model.sales_pipeline.fact_sales_header)
+[0m15:56:12.275739 [debug] [Thread-6 (]: Began compiling node model.sales_pipeline.fact_sales_header
+[0m15:56:12.285149 [debug] [Thread-6 (]: Writing injected SQL for node "model.sales_pipeline.fact_sales_header"
+[0m15:56:12.286065 [debug] [Thread-6 (]: Began executing node model.sales_pipeline.fact_sales_header
+[0m15:56:12.327760 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.fact_sales_header"
+[0m15:56:12.328545 [debug] [Thread-6 (]: On model.sales_pipeline.fact_sales_header: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_header"} */
+create or replace  temporary view SALES_DEV.GOLD_GOLD.fact_sales_header__dbt_tmp
+  
+   as (
+    -- FACT_SALES_HEADER: Transaction-level fact table
+
+
+select
+    sha2(concat(
+        coalesce(sh.transaction_id, ''),
+        coalesce(to_varchar(sh.__bronze_load_ts, 'YYYY-MM-DD HH24:MI:SS.FF6'), '')
+    ), 256) as fact_sales_header_key,
+
+    c.customer_dim_key,
+    s.store_dim_key,
+    cn.country_dim_key,
+    d.date_dim_key,
+
+    sh.transaction_id,
+    sh.transaction_number,
+    sh.transaction_timestamp,
+    sh.channel_id,
+    sh.payment_method,
+    sh.currency,
+    sh.gross_amount,
+    sh.total_discount,
+    sh.total_tax,
+    sh.net_total,
+    1 as transaction_count,
+
+    sh.__bronze_load_ts as __source_load_ts
+
+from SALES_DEV.GOLD_SILVER.stg_sales_header sh
+join SALES_DEV.GOLD_GOLD.dim_customer c
+    on sha2(concat(coalesce(sh.customer_id, ''), coalesce(to_varchar(c.effective_start_ts, 'YYYY-MM-DD HH24:MI:SS.FF6'), '')), 256) = c.customer_dim_key
+join SALES_DEV.GOLD_GOLD.dim_store s
+    on sha2(concat(coalesce(sh.store_id, ''), coalesce(to_varchar(s.effective_start_ts, 'YYYY-MM-DD HH24:MI:SS.FF6'), '')), 256) = s.store_dim_key
+join SALES_DEV.GOLD_GOLD.dim_country cn
+    on s.country_code = cn.country_code and cn.is_current = true
+join SALES_DEV.GOLD_GOLD.dim_date d
+    on sh.transaction_timestamp = d.date_key
+where sh.is_valid_record = true
+
+
+    and sh.__bronze_load_ts > (select max(__source_load_ts) from SALES_DEV.GOLD_GOLD.fact_sales_header)
+
+  );
+[0m15:56:12.329239 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m15:56:13.916880 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 1.587 seconds
+[0m15:56:13.928329 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.fact_sales_header"
+[0m15:56:13.929102 [debug] [Thread-6 (]: On model.sales_pipeline.fact_sales_header: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_header"} */
+describe table SALES_DEV.GOLD_GOLD.fact_sales_header__dbt_tmp
+[0m15:56:14.069921 [debug] [Thread-6 (]: SQL status: SUCCESS 17 in 0.140 seconds
+[0m15:56:14.078121 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.fact_sales_header"
+[0m15:56:14.078744 [debug] [Thread-6 (]: On model.sales_pipeline.fact_sales_header: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_header"} */
+describe table SALES_DEV.GOLD_GOLD.fact_sales_header
+[0m15:56:14.157288 [debug] [Thread-6 (]: SQL status: SUCCESS 17 in 0.078 seconds
+[0m15:56:14.167788 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.fact_sales_header"
+[0m15:56:14.168424 [debug] [Thread-6 (]: On model.sales_pipeline.fact_sales_header: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_header"} */
+describe table "SALES_DEV"."GOLD_GOLD"."FACT_SALES_HEADER"
+[0m15:56:14.236051 [debug] [Thread-6 (]: SQL status: SUCCESS 17 in 0.067 seconds
+[0m15:56:14.317904 [debug] [Thread-6 (]: Writing runtime sql for node "model.sales_pipeline.fact_sales_header"
+[0m15:56:14.320214 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.fact_sales_header"
+[0m15:56:14.320824 [debug] [Thread-6 (]: On model.sales_pipeline.fact_sales_header: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_header"} */
+-- back compat for old kwarg name
+  
+  begin;
+[0m15:56:14.429585 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.108 seconds
+[0m15:56:14.430317 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.fact_sales_header"
+[0m15:56:14.430959 [debug] [Thread-6 (]: On model.sales_pipeline.fact_sales_header: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_header"} */
+merge into SALES_DEV.GOLD_GOLD.fact_sales_header as DBT_INTERNAL_DEST
+        using SALES_DEV.GOLD_GOLD.fact_sales_header__dbt_tmp as DBT_INTERNAL_SOURCE
+        on ((DBT_INTERNAL_SOURCE.fact_sales_header_key = DBT_INTERNAL_DEST.fact_sales_header_key))
+
+    
+    when matched then update set
+        "FACT_SALES_HEADER_KEY" = DBT_INTERNAL_SOURCE."FACT_SALES_HEADER_KEY","CUSTOMER_DIM_KEY" = DBT_INTERNAL_SOURCE."CUSTOMER_DIM_KEY","STORE_DIM_KEY" = DBT_INTERNAL_SOURCE."STORE_DIM_KEY","COUNTRY_DIM_KEY" = DBT_INTERNAL_SOURCE."COUNTRY_DIM_KEY","DATE_DIM_KEY" = DBT_INTERNAL_SOURCE."DATE_DIM_KEY","TRANSACTION_ID" = DBT_INTERNAL_SOURCE."TRANSACTION_ID","TRANSACTION_NUMBER" = DBT_INTERNAL_SOURCE."TRANSACTION_NUMBER","TRANSACTION_TIMESTAMP" = DBT_INTERNAL_SOURCE."TRANSACTION_TIMESTAMP","CHANNEL_ID" = DBT_INTERNAL_SOURCE."CHANNEL_ID","PAYMENT_METHOD" = DBT_INTERNAL_SOURCE."PAYMENT_METHOD","CURRENCY" = DBT_INTERNAL_SOURCE."CURRENCY","GROSS_AMOUNT" = DBT_INTERNAL_SOURCE."GROSS_AMOUNT","TOTAL_DISCOUNT" = DBT_INTERNAL_SOURCE."TOTAL_DISCOUNT","TOTAL_TAX" = DBT_INTERNAL_SOURCE."TOTAL_TAX","NET_TOTAL" = DBT_INTERNAL_SOURCE."NET_TOTAL","TRANSACTION_COUNT" = DBT_INTERNAL_SOURCE."TRANSACTION_COUNT","__SOURCE_LOAD_TS" = DBT_INTERNAL_SOURCE."__SOURCE_LOAD_TS"
+    
+
+    when not matched then insert
+        ("FACT_SALES_HEADER_KEY", "CUSTOMER_DIM_KEY", "STORE_DIM_KEY", "COUNTRY_DIM_KEY", "DATE_DIM_KEY", "TRANSACTION_ID", "TRANSACTION_NUMBER", "TRANSACTION_TIMESTAMP", "CHANNEL_ID", "PAYMENT_METHOD", "CURRENCY", "GROSS_AMOUNT", "TOTAL_DISCOUNT", "TOTAL_TAX", "NET_TOTAL", "TRANSACTION_COUNT", "__SOURCE_LOAD_TS")
+    values
+        ("FACT_SALES_HEADER_KEY", "CUSTOMER_DIM_KEY", "STORE_DIM_KEY", "COUNTRY_DIM_KEY", "DATE_DIM_KEY", "TRANSACTION_ID", "TRANSACTION_NUMBER", "TRANSACTION_TIMESTAMP", "CHANNEL_ID", "PAYMENT_METHOD", "CURRENCY", "GROSS_AMOUNT", "TOTAL_DISCOUNT", "TOTAL_TAX", "NET_TOTAL", "TRANSACTION_COUNT", "__SOURCE_LOAD_TS")
+
+;
+[0m15:56:15.514159 [debug] [Thread-6 (]: SQL status: SUCCESS 0 in 1.082 seconds
+[0m15:56:15.514944 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.fact_sales_header"
+[0m15:56:15.515560 [debug] [Thread-6 (]: On model.sales_pipeline.fact_sales_header: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_header"} */
+COMMIT
+[0m15:56:15.667070 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.151 seconds
+[0m15:56:15.680025 [debug] [Thread-6 (]: Applying DROP to: SALES_DEV.GOLD_GOLD.fact_sales_header__dbt_tmp
+[0m15:56:15.698058 [debug] [Thread-6 (]: Using snowflake connection "model.sales_pipeline.fact_sales_header"
+[0m15:56:15.698727 [debug] [Thread-6 (]: On model.sales_pipeline.fact_sales_header: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_header"} */
+drop view if exists SALES_DEV.GOLD_GOLD.fact_sales_header__dbt_tmp cascade
+[0m15:56:15.888170 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.189 seconds
+[0m15:56:15.891519 [info ] [Thread-6 (]: 18 of 21 OK created sql incremental model GOLD_GOLD.fact_sales_header .......... [[32mSUCCESS 0[0m in 3.62s]
+[0m15:56:15.892333 [debug] [Thread-6 (]: Finished running node model.sales_pipeline.fact_sales_header
+[0m15:56:15.893666 [debug] [Thread-5 (]: Began running node model.sales_pipeline.fact_sales_daily
+[0m15:56:15.894247 [debug] [Thread-3 (]: Began running node model.sales_pipeline.fact_sales_item
+[0m15:56:15.894948 [debug] [Thread-7 (]: Began running node model.sales_pipeline.fact_sales_monthly
+[0m15:56:15.895837 [info ] [Thread-5 (]: 19 of 21 START sql table model GOLD_GOLD.fact_sales_daily ...................... [RUN]
+[0m15:56:15.896639 [info ] [Thread-3 (]: 20 of 21 START sql incremental model GOLD_GOLD.fact_sales_item ................. [RUN]
+[0m15:56:15.897605 [info ] [Thread-7 (]: 21 of 21 START sql table model GOLD_GOLD.fact_sales_monthly .................... [RUN]
+[0m15:56:15.898384 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_store_master, now model.sales_pipeline.fact_sales_daily)
+[0m15:56:15.899340 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.stg_tax_master, now model.sales_pipeline.fact_sales_item)
+[0m15:56:15.899983 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly model.sales_pipeline.dim_product, now model.sales_pipeline.fact_sales_monthly)
+[0m15:56:15.900548 [debug] [Thread-5 (]: Began compiling node model.sales_pipeline.fact_sales_daily
+[0m15:56:15.901190 [debug] [Thread-3 (]: Began compiling node model.sales_pipeline.fact_sales_item
+[0m15:56:15.901739 [debug] [Thread-7 (]: Began compiling node model.sales_pipeline.fact_sales_monthly
+[0m15:56:15.909201 [debug] [Thread-5 (]: Writing injected SQL for node "model.sales_pipeline.fact_sales_daily"
+[0m15:56:16.019516 [debug] [Thread-3 (]: Writing injected SQL for node "model.sales_pipeline.fact_sales_item"
+[0m15:56:16.025221 [debug] [Thread-7 (]: Writing injected SQL for node "model.sales_pipeline.fact_sales_monthly"
+[0m15:56:16.026654 [debug] [Thread-5 (]: Began executing node model.sales_pipeline.fact_sales_daily
+[0m15:56:16.027535 [debug] [Thread-3 (]: Began executing node model.sales_pipeline.fact_sales_item
+[0m15:56:16.032249 [debug] [Thread-5 (]: Writing runtime sql for node "model.sales_pipeline.fact_sales_daily"
+[0m15:56:16.033042 [debug] [Thread-7 (]: Began executing node model.sales_pipeline.fact_sales_monthly
+[0m15:56:16.039504 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.fact_sales_item"
+[0m15:56:16.046126 [debug] [Thread-7 (]: Writing runtime sql for node "model.sales_pipeline.fact_sales_monthly"
+[0m15:56:16.048205 [debug] [Thread-5 (]: Using snowflake connection "model.sales_pipeline.fact_sales_daily"
+[0m15:56:16.048885 [debug] [Thread-3 (]: On model.sales_pipeline.fact_sales_item: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_item"} */
+create or replace  temporary view SALES_DEV.GOLD_GOLD.fact_sales_item__dbt_tmp
+  
+   as (
+    -- FACT_SALES_ITEM: Line-item level fact table
+
+
+select
+    sha2(concat(
+        coalesce(si.transaction_line_id, ''),
+        coalesce(to_varchar(si.__bronze_load_ts, 'YYYY-MM-DD HH24:MI:SS.FF6'), '')
+    ), 256) as fact_sales_item_key,
+
+    fh.fact_sales_header_key,
+    fh.customer_dim_key,
+    p.product_dim_key,
+    fh.store_dim_key,
+    fh.country_dim_key,
+    fh.date_dim_key,
+
+    si.transaction_line_id,
+    si.transaction_id,
+    fh.transaction_number,
+    fh.transaction_timestamp,
+    fh.channel_id,
+    fh.currency,
+    si.quantity,
+    si.unit_price,
+    si.discount_amount,
+    si.tax_amount,
+    si.line_total,
+    1 as line_count,
+
+    si.__bronze_load_ts as __source_load_ts
+
+from SALES_DEV.GOLD_SILVER.stg_sales_item si
+join SALES_DEV.GOLD_GOLD.fact_sales_header fh
+    on si.transaction_id = fh.transaction_id
+join SALES_DEV.GOLD_GOLD.dim_product p
+    on sha2(concat(coalesce(si.sku_code, ''), coalesce(to_varchar(p.effective_start_ts, 'YYYY-MM-DD HH24:MI:SS.FF6'), '')), 256) = p.product_dim_key
+where si.is_valid_record = true
+
+
+    and si.__bronze_load_ts > (select max(__source_load_ts) from SALES_DEV.GOLD_GOLD.fact_sales_item)
+
+  );
+[0m15:56:16.049946 [debug] [Thread-5 (]: On model.sales_pipeline.fact_sales_daily: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_daily"} */
+create or replace transient table SALES_DEV.GOLD_GOLD.fact_sales_daily
+         as
+        (-- FACT_SALES_DAILY: Daily aggregated sales
+
+
+select
+    d.date_dim_key,
+    d.date_key,
+    d.year_number,
+    d.quarter_number,
+    d.month_number,
+    d.week_number,
+    d.year_month,
+    d.month_name,
+    d.day_name,
+    d.is_weekend,
+
+    cn.country_dim_key,
+    cn.country_code,
+    cn.country_name,
+    cn.region_code,
+    cn.region_name,
+
+    s.store_dim_key,
+    s.store_code,
+    s.store_name,
+    s.format_code,
+
+    fh.channel_id,
+    fh.currency,
+
+    count(*) as transaction_count,
+    sum(fh.gross_amount) as total_gross_amount,
+    sum(fh.total_discount) as total_discount,
+    sum(fh.total_tax) as total_tax,
+    sum(fh.net_total) as total_net_sales,
+    avg(fh.net_total) as avg_transaction_value,
+    count(distinct fh.customer_dim_key) as unique_customers
+
+from SALES_DEV.GOLD_GOLD.fact_sales_header fh
+join SALES_DEV.GOLD_GOLD.dim_date d on fh.date_dim_key = d.date_dim_key
+join SALES_DEV.GOLD_GOLD.dim_store s on fh.store_dim_key = s.store_dim_key
+join SALES_DEV.GOLD_GOLD.dim_country cn on fh.country_dim_key = cn.country_dim_key
+group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21
+        );
+[0m15:56:16.051801 [debug] [Thread-7 (]: Using snowflake connection "model.sales_pipeline.fact_sales_monthly"
+[0m15:56:16.052313 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:56:16.052821 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m15:56:16.053481 [debug] [Thread-7 (]: On model.sales_pipeline.fact_sales_monthly: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_monthly"} */
+create or replace transient table SALES_DEV.GOLD_GOLD.fact_sales_monthly
+         as
+        (-- FACT_SALES_MONTHLY: Monthly aggregated sales for executive reporting
+
+
+select
+    d.year_number,
+    d.month_number,
+    d.year_month,
+    d.month_name,
+    d.quarter_number,
+    d.year_quarter,
+
+    cn.country_dim_key,
+    cn.country_code,
+    cn.country_name,
+    cn.region_code,
+    cn.region_name,
+
+    fh.channel_id,
+    fh.currency,
+
+    count(*) as transaction_count,
+    sum(fh.gross_amount) as total_gross_amount,
+    sum(fh.total_discount) as total_discount,
+    sum(fh.total_tax) as total_tax,
+    sum(fh.net_total) as total_net_sales,
+    avg(fh.net_total) as avg_transaction_value,
+    count(distinct fh.customer_dim_key) as unique_customers,
+    count(distinct fh.store_dim_key) as active_stores,
+    count(distinct d.date_key) as selling_days
+
+from SALES_DEV.GOLD_GOLD.fact_sales_header fh
+join SALES_DEV.GOLD_GOLD.dim_date d on fh.date_dim_key = d.date_dim_key
+join SALES_DEV.GOLD_GOLD.dim_country cn on fh.country_dim_key = cn.country_dim_key
+group by 1,2,3,4,5,6,7,8,9,10,11,12,13
+        );
+[0m15:56:16.054369 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m15:56:16.916829 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.864 seconds
+[0m15:56:16.922103 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.fact_sales_item"
+[0m15:56:16.922747 [debug] [Thread-3 (]: On model.sales_pipeline.fact_sales_item: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_item"} */
+describe table SALES_DEV.GOLD_GOLD.fact_sales_item__dbt_tmp
+[0m15:56:17.025239 [debug] [Thread-3 (]: SQL status: SUCCESS 20 in 0.102 seconds
+[0m15:56:17.031674 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.fact_sales_item"
+[0m15:56:17.032358 [debug] [Thread-3 (]: On model.sales_pipeline.fact_sales_item: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_item"} */
+describe table SALES_DEV.GOLD_GOLD.fact_sales_item
+[0m15:56:17.122035 [debug] [Thread-3 (]: SQL status: SUCCESS 20 in 0.089 seconds
+[0m15:56:17.133639 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.fact_sales_item"
+[0m15:56:17.135729 [debug] [Thread-3 (]: On model.sales_pipeline.fact_sales_item: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_item"} */
+describe table "SALES_DEV"."GOLD_GOLD"."FACT_SALES_ITEM"
+[0m15:56:17.222395 [debug] [Thread-3 (]: SQL status: SUCCESS 20 in 0.085 seconds
+[0m15:56:17.249316 [debug] [Thread-3 (]: Writing runtime sql for node "model.sales_pipeline.fact_sales_item"
+[0m15:56:17.259967 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.fact_sales_item"
+[0m15:56:17.260725 [debug] [Thread-3 (]: On model.sales_pipeline.fact_sales_item: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_item"} */
+-- back compat for old kwarg name
+  
+  begin;
+[0m15:56:17.422130 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.156 seconds
+[0m15:56:17.422820 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.fact_sales_item"
+[0m15:56:17.423515 [debug] [Thread-3 (]: On model.sales_pipeline.fact_sales_item: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_item"} */
+merge into SALES_DEV.GOLD_GOLD.fact_sales_item as DBT_INTERNAL_DEST
+        using SALES_DEV.GOLD_GOLD.fact_sales_item__dbt_tmp as DBT_INTERNAL_SOURCE
+        on ((DBT_INTERNAL_SOURCE.fact_sales_item_key = DBT_INTERNAL_DEST.fact_sales_item_key))
+
+    
+    when matched then update set
+        "FACT_SALES_ITEM_KEY" = DBT_INTERNAL_SOURCE."FACT_SALES_ITEM_KEY","FACT_SALES_HEADER_KEY" = DBT_INTERNAL_SOURCE."FACT_SALES_HEADER_KEY","CUSTOMER_DIM_KEY" = DBT_INTERNAL_SOURCE."CUSTOMER_DIM_KEY","PRODUCT_DIM_KEY" = DBT_INTERNAL_SOURCE."PRODUCT_DIM_KEY","STORE_DIM_KEY" = DBT_INTERNAL_SOURCE."STORE_DIM_KEY","COUNTRY_DIM_KEY" = DBT_INTERNAL_SOURCE."COUNTRY_DIM_KEY","DATE_DIM_KEY" = DBT_INTERNAL_SOURCE."DATE_DIM_KEY","TRANSACTION_LINE_ID" = DBT_INTERNAL_SOURCE."TRANSACTION_LINE_ID","TRANSACTION_ID" = DBT_INTERNAL_SOURCE."TRANSACTION_ID","TRANSACTION_NUMBER" = DBT_INTERNAL_SOURCE."TRANSACTION_NUMBER","TRANSACTION_TIMESTAMP" = DBT_INTERNAL_SOURCE."TRANSACTION_TIMESTAMP","CHANNEL_ID" = DBT_INTERNAL_SOURCE."CHANNEL_ID","CURRENCY" = DBT_INTERNAL_SOURCE."CURRENCY","QUANTITY" = DBT_INTERNAL_SOURCE."QUANTITY","UNIT_PRICE" = DBT_INTERNAL_SOURCE."UNIT_PRICE","DISCOUNT_AMOUNT" = DBT_INTERNAL_SOURCE."DISCOUNT_AMOUNT","TAX_AMOUNT" = DBT_INTERNAL_SOURCE."TAX_AMOUNT","LINE_TOTAL" = DBT_INTERNAL_SOURCE."LINE_TOTAL","LINE_COUNT" = DBT_INTERNAL_SOURCE."LINE_COUNT","__SOURCE_LOAD_TS" = DBT_INTERNAL_SOURCE."__SOURCE_LOAD_TS"
+    
+
+    when not matched then insert
+        ("FACT_SALES_ITEM_KEY", "FACT_SALES_HEADER_KEY", "CUSTOMER_DIM_KEY", "PRODUCT_DIM_KEY", "STORE_DIM_KEY", "COUNTRY_DIM_KEY", "DATE_DIM_KEY", "TRANSACTION_LINE_ID", "TRANSACTION_ID", "TRANSACTION_NUMBER", "TRANSACTION_TIMESTAMP", "CHANNEL_ID", "CURRENCY", "QUANTITY", "UNIT_PRICE", "DISCOUNT_AMOUNT", "TAX_AMOUNT", "LINE_TOTAL", "LINE_COUNT", "__SOURCE_LOAD_TS")
+    values
+        ("FACT_SALES_ITEM_KEY", "FACT_SALES_HEADER_KEY", "CUSTOMER_DIM_KEY", "PRODUCT_DIM_KEY", "STORE_DIM_KEY", "COUNTRY_DIM_KEY", "DATE_DIM_KEY", "TRANSACTION_LINE_ID", "TRANSACTION_ID", "TRANSACTION_NUMBER", "TRANSACTION_TIMESTAMP", "CHANNEL_ID", "CURRENCY", "QUANTITY", "UNIT_PRICE", "DISCOUNT_AMOUNT", "TAX_AMOUNT", "LINE_TOTAL", "LINE_COUNT", "__SOURCE_LOAD_TS")
+
+;
+[0m15:56:17.817774 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.765 seconds
+[0m15:56:17.820969 [info ] [Thread-5 (]: 19 of 21 OK created sql table model GOLD_GOLD.fact_sales_daily ................. [[32mSUCCESS 1[0m in 1.92s]
+[0m15:56:17.821775 [debug] [Thread-5 (]: Finished running node model.sales_pipeline.fact_sales_daily
+[0m15:56:17.847589 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 1.793 seconds
+[0m15:56:17.850684 [info ] [Thread-7 (]: 21 of 21 OK created sql table model GOLD_GOLD.fact_sales_monthly ............... [[32mSUCCESS 1[0m in 1.95s]
+[0m15:56:17.851461 [debug] [Thread-7 (]: Finished running node model.sales_pipeline.fact_sales_monthly
+[0m15:56:17.952435 [debug] [Thread-3 (]: SQL status: SUCCESS 0 in 0.528 seconds
+[0m15:56:17.953295 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.fact_sales_item"
+[0m15:56:17.953865 [debug] [Thread-3 (]: On model.sales_pipeline.fact_sales_item: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_item"} */
+COMMIT
+[0m15:56:18.096967 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.142 seconds
+[0m15:56:18.104174 [debug] [Thread-3 (]: Applying DROP to: SALES_DEV.GOLD_GOLD.fact_sales_item__dbt_tmp
+[0m15:56:18.105872 [debug] [Thread-3 (]: Using snowflake connection "model.sales_pipeline.fact_sales_item"
+[0m15:56:18.106488 [debug] [Thread-3 (]: On model.sales_pipeline.fact_sales_item: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "model.sales_pipeline.fact_sales_item"} */
+drop view if exists SALES_DEV.GOLD_GOLD.fact_sales_item__dbt_tmp cascade
+[0m15:56:18.239872 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.133 seconds
+[0m15:56:18.242939 [info ] [Thread-3 (]: 20 of 21 OK created sql incremental model GOLD_GOLD.fact_sales_item ............ [[32mSUCCESS 0[0m in 2.34s]
+[0m15:56:18.243766 [debug] [Thread-3 (]: Finished running node model.sales_pipeline.fact_sales_item
+[0m15:56:18.249154 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m15:56:18.250081 [debug] [Dummy-1   ]: Connection 'model.sales_pipeline.fact_sales_item' was properly closed.
+[0m15:56:18.250766 [debug] [Dummy-1   ]: Connection 'model.sales_pipeline.dim_country' was properly closed.
+[0m15:56:18.251233 [debug] [Dummy-1   ]: Connection 'model.sales_pipeline.stg_sales_header' was properly closed.
+[0m15:56:18.251643 [debug] [Dummy-1   ]: Connection 'model.sales_pipeline.fact_sales_daily' was properly closed.
+[0m15:56:18.252040 [debug] [Dummy-1   ]: Connection 'model.sales_pipeline.fact_sales_header' was properly closed.
+[0m15:56:18.252442 [debug] [Dummy-1   ]: Connection 'model.sales_pipeline.fact_sales_monthly' was properly closed.
+[0m15:56:18.252879 [debug] [Dummy-1   ]: Connection 'model.sales_pipeline.dim_store' was properly closed.
+[0m15:56:18.253437 [debug] [Dummy-1   ]: Connection 'model.sales_pipeline.dim_customer' was properly closed.
+[0m15:56:18.254101 [info ] [Dummy-1   ]: 
+[0m15:56:18.254641 [info ] [Dummy-1   ]: Finished running 2 incremental models, 7 table models, 12 view models in 0 hours 0 minutes and 12.32 seconds (12.32s).
+[0m15:56:18.257857 [debug] [Dummy-1   ]: Command end result
+[0m15:56:18.293562 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m15:56:18.295891 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m15:56:18.303119 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m15:56:18.303664 [info ] [Dummy-1   ]: 
+[0m15:56:18.304270 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m15:56:18.304804 [info ] [Dummy-1   ]: 
+[0m15:56:18.305373 [info ] [Dummy-1   ]: Done. PASS=21 WARN=0 ERROR=0 SKIP=0 TOTAL=21
+[0m15:56:18.307220 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 15.362023, "process_in_blocks": "0", "process_kernel_time": 1.03, "process_mem_max_rss": "553672", "process_out_blocks": "0", "process_user_time": 7.24}
+[0m15:56:18.307854 [debug] [Dummy-1   ]: Command `cli run` succeeded at 15:56:18.307605 after 15.36 seconds
+[0m15:56:18.308364 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 15:58:10.200391 | de35b1af-51d2-4eff-bd61-f7f0c235cc12 ==============================
+[0m15:58:10.200391 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m15:58:10.201406 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/tmp/dbt/', 'log_path': '/tmp/dbt/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt ', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': '/tmp/dbt/target/', 'introspect': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m15:58:10.487912 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m15:58:11.028428 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m15:58:11.328836 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m15:58:11.329497 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m15:58:11.481460 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m15:58:11.483652 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m15:58:11.548562 [info ] [Dummy-1   ]: Found 21 models, 37 data tests, 13 sources, 474 macros
+[0m15:58:11.553111 [info ] [Dummy-1   ]: 
+[0m15:58:11.553704 [info ] [Dummy-1   ]: Concurrency: 8 threads (target='dev')
+[0m15:58:11.554172 [info ] [Dummy-1   ]: 
+[0m15:58:11.554975 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m15:58:11.562626 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SALES_DEV_GOLD_GOLD'
+[0m15:58:11.564697 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_SALES_DEV_GOLD_SILVER'
+[0m15:58:11.677033 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_GOLD"
+[0m15:58:11.677772 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_SILVER"
+[0m15:58:11.678310 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_GOLD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_GOLD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m15:58:11.678779 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_SILVER: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_SILVER"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m15:58:11.679257 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:58:11.679745 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:58:12.066430 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.387 seconds
+[0m15:58:12.071206 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_GOLD"
+[0m15:58:12.071767 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_GOLD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_GOLD"} */
+show objects in SALES_DEV.GOLD_GOLD
+    limit 10000
+    
+;
+[0m15:58:12.131279 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.451 seconds
+[0m15:58:12.133423 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_SILVER"
+[0m15:58:12.133967 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_SILVER: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_SILVER"} */
+show objects in SALES_DEV.GOLD_SILVER
+    limit 10000
+    
+;
+[0m15:58:12.201582 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.129 seconds
+[0m15:58:12.204235 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_GOLD"
+[0m15:58:12.204769 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_GOLD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_GOLD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m15:58:12.243588 [debug] [ThreadPool]: SQL status: SUCCESS 12 in 0.109 seconds
+[0m15:58:12.245978 [debug] [ThreadPool]: Using snowflake connection "list_SALES_DEV_GOLD_SILVER"
+[0m15:58:12.246501 [debug] [ThreadPool]: On list_SALES_DEV_GOLD_SILVER: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "connection_name": "list_SALES_DEV_GOLD_SILVER"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m15:58:12.269307 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.064 seconds
+[0m15:58:12.321656 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.075 seconds
+[0m15:58:12.342012 [debug] [Thread-2 (]: Began running node test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4
+[0m15:58:12.342627 [debug] [Thread-3 (]: Began running node test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283
+[0m15:58:12.343170 [debug] [Thread-4 (]: Began running node test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a
+[0m15:58:12.343732 [debug] [Thread-5 (]: Began running node test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc
+[0m15:58:12.344284 [debug] [Thread-6 (]: Began running node test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20
+[0m15:58:12.344954 [debug] [Thread-7 (]: Began running node test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6
+[0m15:58:12.345574 [debug] [Thread-8 (]: Began running node test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8
+[0m15:58:12.346097 [info ] [Thread-2 (]: 1 of 37 START test not_null_dim_country_country_code ........................... [RUN]
+[0m15:58:12.346665 [debug] [Thread-9 (]: Began running node test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd
+[0m15:58:12.347219 [info ] [Thread-3 (]: 2 of 37 START test not_null_dim_country_country_dim_key ........................ [RUN]
+[0m15:58:12.347795 [info ] [Thread-4 (]: 3 of 37 START test not_null_dim_customer_customer_dim_key ...................... [RUN]
+[0m15:58:12.348372 [info ] [Thread-5 (]: 4 of 37 START test not_null_dim_customer_customer_id ........................... [RUN]
+[0m15:58:12.349000 [info ] [Thread-6 (]: 5 of 37 START test not_null_dim_date_date_dim_key .............................. [RUN]
+[0m15:58:12.349592 [info ] [Thread-7 (]: 6 of 37 START test not_null_dim_date_date_key .................................. [RUN]
+[0m15:58:12.350189 [info ] [Thread-8 (]: 7 of 37 START test not_null_dim_product_product_dim_key ........................ [RUN]
+[0m15:58:12.350892 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_SALES_DEV_GOLD_GOLD, now test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4)
+[0m15:58:12.351419 [info ] [Thread-9 (]: 8 of 37 START test not_null_dim_product_sku_code ............................... [RUN]
+[0m15:58:12.352068 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_SALES_DEV_GOLD_SILVER, now test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283)
+[0m15:58:12.352755 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a'
+[0m15:58:12.353624 [debug] [Thread-5 (]: Acquiring new snowflake connection 'test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc'
+[0m15:58:12.354307 [debug] [Thread-6 (]: Acquiring new snowflake connection 'test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20'
+[0m15:58:12.354931 [debug] [Thread-7 (]: Acquiring new snowflake connection 'test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6'
+[0m15:58:12.355558 [debug] [Thread-8 (]: Acquiring new snowflake connection 'test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8'
+[0m15:58:12.356075 [debug] [Thread-2 (]: Began compiling node test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4
+[0m15:58:12.356711 [debug] [Thread-9 (]: Acquiring new snowflake connection 'test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd'
+[0m15:58:12.357308 [debug] [Thread-3 (]: Began compiling node test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283
+[0m15:58:12.357794 [debug] [Thread-4 (]: Began compiling node test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a
+[0m15:58:12.358273 [debug] [Thread-5 (]: Began compiling node test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc
+[0m15:58:12.358750 [debug] [Thread-6 (]: Began compiling node test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20
+[0m15:58:12.359254 [debug] [Thread-7 (]: Began compiling node test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6
+[0m15:58:12.359730 [debug] [Thread-8 (]: Began compiling node test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8
+[0m15:58:12.378549 [debug] [Thread-2 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4"
+[0m15:58:12.379101 [debug] [Thread-9 (]: Began compiling node test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd
+[0m15:58:12.384693 [debug] [Thread-3 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283"
+[0m15:58:12.392164 [debug] [Thread-4 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a"
+[0m15:58:12.397977 [debug] [Thread-5 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc"
+[0m15:58:12.403943 [debug] [Thread-6 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20"
+[0m15:58:12.409513 [debug] [Thread-7 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6"
+[0m15:58:12.415225 [debug] [Thread-8 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8"
+[0m15:58:12.422666 [debug] [Thread-9 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd"
+[0m15:58:12.423356 [debug] [Thread-2 (]: Began executing node test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4
+[0m15:58:12.424376 [debug] [Thread-3 (]: Began executing node test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283
+[0m15:58:12.425215 [debug] [Thread-4 (]: Began executing node test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a
+[0m15:58:12.425871 [debug] [Thread-5 (]: Began executing node test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc
+[0m15:58:12.426673 [debug] [Thread-6 (]: Began executing node test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20
+[0m15:58:12.427497 [debug] [Thread-7 (]: Began executing node test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6
+[0m15:58:12.428211 [debug] [Thread-8 (]: Began executing node test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8
+[0m15:58:12.446948 [debug] [Thread-9 (]: Began executing node test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd
+[0m15:58:12.451014 [debug] [Thread-2 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4"
+[0m15:58:12.454842 [debug] [Thread-3 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283"
+[0m15:58:12.458619 [debug] [Thread-4 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a"
+[0m15:58:12.462329 [debug] [Thread-5 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc"
+[0m15:58:12.466923 [debug] [Thread-6 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20"
+[0m15:58:12.470745 [debug] [Thread-7 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6"
+[0m15:58:12.474327 [debug] [Thread-8 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8"
+[0m15:58:12.477998 [debug] [Thread-9 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd"
+[0m15:58:12.479823 [debug] [Thread-2 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4"
+[0m15:58:12.480728 [debug] [Thread-3 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283"
+[0m15:58:12.482071 [debug] [Thread-4 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a"
+[0m15:58:12.483271 [debug] [Thread-5 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc"
+[0m15:58:12.484416 [debug] [Thread-6 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20"
+[0m15:58:12.485475 [debug] [Thread-7 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6"
+[0m15:58:12.486779 [debug] [Thread-8 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8"
+[0m15:58:12.487470 [debug] [Thread-2 (]: On test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select country_code
+from SALES_DEV.GOLD_GOLD.dim_country
+where country_code is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:12.488334 [debug] [Thread-9 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd"
+[0m15:58:12.488865 [debug] [Thread-3 (]: On test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select country_dim_key
+from SALES_DEV.GOLD_GOLD.dim_country
+where country_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:12.489462 [debug] [Thread-4 (]: On test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_dim_key
+from SALES_DEV.GOLD_GOLD.dim_customer
+where customer_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:12.490012 [debug] [Thread-5 (]: On test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from SALES_DEV.GOLD_GOLD.dim_customer
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:12.490583 [debug] [Thread-6 (]: On test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select date_dim_key
+from SALES_DEV.GOLD_GOLD.dim_date
+where date_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:12.491121 [debug] [Thread-7 (]: On test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select date_key
+from SALES_DEV.GOLD_GOLD.dim_date
+where date_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:12.491644 [debug] [Thread-8 (]: On test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select product_dim_key
+from SALES_DEV.GOLD_GOLD.dim_product
+where product_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:12.492151 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m15:58:12.492652 [debug] [Thread-9 (]: On test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select sku_code
+from SALES_DEV.GOLD_GOLD.dim_product
+where sku_code is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:12.493248 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:58:12.493722 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:58:12.494189 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m15:58:12.494659 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m15:58:12.495112 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m15:58:12.495557 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m15:58:12.496157 [debug] [Thread-9 (]: Opening a new connection, currently in state init
+[0m15:58:13.062447 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.570 seconds
+[0m15:58:13.071236 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.578 seconds
+[0m15:58:13.071994 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.576 seconds
+[0m15:58:13.074563 [info ] [Thread-2 (]: 1 of 37 PASS not_null_dim_country_country_code ................................. [[32mPASS[0m in 0.72s]
+[0m15:58:13.077073 [info ] [Thread-3 (]: 2 of 37 PASS not_null_dim_country_country_dim_key .............................. [[32mPASS[0m in 0.72s]
+[0m15:58:13.079223 [info ] [Thread-9 (]: 8 of 37 PASS not_null_dim_product_sku_code ..................................... [[32mPASS[0m in 0.72s]
+[0m15:58:13.080111 [debug] [Thread-2 (]: Finished running node test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4
+[0m15:58:13.080813 [debug] [Thread-3 (]: Finished running node test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283
+[0m15:58:13.081576 [debug] [Thread-9 (]: Finished running node test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd
+[0m15:58:13.082193 [debug] [Thread-2 (]: Began running node test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42
+[0m15:58:13.083125 [debug] [Thread-3 (]: Began running node test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f
+[0m15:58:13.083787 [debug] [Thread-9 (]: Began running node test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191
+[0m15:58:13.084408 [info ] [Thread-2 (]: 9 of 37 START test not_null_dim_store_store_code ............................... [RUN]
+[0m15:58:13.085048 [info ] [Thread-3 (]: 10 of 37 START test not_null_dim_store_store_dim_key ........................... [RUN]
+[0m15:58:13.085601 [info ] [Thread-9 (]: 11 of 37 START test not_null_fact_sales_header_country_dim_key ................. [RUN]
+[0m15:58:13.086244 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_country_country_code.4eebc314d4, now test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42)
+[0m15:58:13.087348 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 0.592 seconds
+[0m15:58:13.088120 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_country_country_dim_key.c28dec9283, now test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f)
+[0m15:58:13.088741 [debug] [Thread-9 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_product_sku_code.2f422af6bd, now test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191)
+[0m15:58:13.089369 [debug] [Thread-2 (]: Began compiling node test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42
+[0m15:58:13.091521 [info ] [Thread-8 (]: 7 of 37 PASS not_null_dim_product_product_dim_key .............................. [[32mPASS[0m in 0.74s]
+[0m15:58:13.092200 [debug] [Thread-3 (]: Began compiling node test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f
+[0m15:58:13.092699 [debug] [Thread-9 (]: Began compiling node test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191
+[0m15:58:13.099826 [debug] [Thread-2 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42"
+[0m15:58:13.100586 [debug] [Thread-8 (]: Finished running node test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8
+[0m15:58:13.105939 [debug] [Thread-3 (]: Writing injected SQL for node "test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f"
+[0m15:58:13.111214 [debug] [Thread-9 (]: Writing injected SQL for node "test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191"
+[0m15:58:13.111928 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.617 seconds
+[0m15:58:13.112831 [debug] [Thread-8 (]: Began running node test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83
+[0m15:58:13.117610 [debug] [Thread-9 (]: Began executing node test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191
+[0m15:58:13.114669 [debug] [Thread-3 (]: Began executing node test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f
+[0m15:58:13.116839 [info ] [Thread-7 (]: 6 of 37 PASS not_null_dim_date_date_key ........................................ [[32mPASS[0m in 0.76s]
+[0m15:58:13.113655 [debug] [Thread-2 (]: Began executing node test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42
+[0m15:58:13.118144 [info ] [Thread-8 (]: 12 of 37 START test not_null_fact_sales_header_customer_dim_key ................ [RUN]
+[0m15:58:13.121846 [debug] [Thread-9 (]: Writing runtime sql for node "test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191"
+[0m15:58:13.126570 [debug] [Thread-3 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f"
+[0m15:58:13.127304 [debug] [Thread-7 (]: Finished running node test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6
+[0m15:58:13.133572 [debug] [Thread-9 (]: Using snowflake connection "test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191"
+[0m15:58:13.131644 [debug] [Thread-8 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_product_product_dim_key.9d82e46ab8, now test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83)
+[0m15:58:13.130947 [debug] [Thread-2 (]: Writing runtime sql for node "test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42"
+[0m15:58:13.134220 [debug] [Thread-7 (]: Began running node test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7
+[0m15:58:13.135256 [debug] [Thread-3 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f"
+[0m15:58:13.135770 [debug] [Thread-9 (]: On test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select country_dim_key
+from SALES_DEV.GOLD_GOLD.fact_sales_header
+where country_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.136317 [debug] [Thread-8 (]: Began compiling node test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83
+[0m15:58:13.137459 [info ] [Thread-7 (]: 13 of 37 START test not_null_fact_sales_header_date_dim_key .................... [RUN]
+[0m15:58:13.138454 [debug] [Thread-2 (]: Using snowflake connection "test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42"
+[0m15:58:13.139028 [debug] [Thread-3 (]: On test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select store_dim_key
+from SALES_DEV.GOLD_GOLD.dim_store
+where store_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.139547 [debug] [Thread-9 (]: Opening a new connection, currently in state init
+[0m15:58:13.145292 [debug] [Thread-8 (]: Writing injected SQL for node "test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83"
+[0m15:58:13.145955 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_date_date_key.881d0a31b6, now test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7)
+[0m15:58:13.146569 [debug] [Thread-2 (]: On test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select store_code
+from SALES_DEV.GOLD_GOLD.dim_store
+where store_code is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.147106 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:58:13.148093 [debug] [Thread-7 (]: Began compiling node test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7
+[0m15:58:13.148736 [debug] [Thread-8 (]: Began executing node test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83
+[0m15:58:13.149619 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.655 seconds
+[0m15:58:13.150134 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m15:58:13.155385 [debug] [Thread-7 (]: Writing injected SQL for node "test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7"
+[0m15:58:13.156233 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.662 seconds
+[0m15:58:13.156960 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.663 seconds
+[0m15:58:13.161695 [debug] [Thread-8 (]: Writing runtime sql for node "test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83"
+[0m15:58:13.163804 [info ] [Thread-6 (]: 5 of 37 PASS not_null_dim_date_date_dim_key .................................... [[32mPASS[0m in 0.81s]
+[0m15:58:13.166232 [info ] [Thread-4 (]: 3 of 37 PASS not_null_dim_customer_customer_dim_key ............................ [[32mPASS[0m in 0.81s]
+[0m15:58:13.166842 [debug] [Thread-7 (]: Began executing node test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7
+[0m15:58:13.168686 [info ] [Thread-5 (]: 4 of 37 PASS not_null_dim_customer_customer_id ................................. [[32mPASS[0m in 0.82s]
+[0m15:58:13.169760 [debug] [Thread-6 (]: Finished running node test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20
+[0m15:58:13.170676 [debug] [Thread-8 (]: Using snowflake connection "test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83"
+[0m15:58:13.171322 [debug] [Thread-4 (]: Finished running node test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a
+[0m15:58:13.240351 [debug] [Thread-7 (]: Writing runtime sql for node "test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7"
+[0m15:58:13.241557 [debug] [Thread-5 (]: Finished running node test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc
+[0m15:58:13.242471 [debug] [Thread-6 (]: Began running node test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead
+[0m15:58:13.243450 [debug] [Thread-8 (]: On test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_dim_key
+from SALES_DEV.GOLD_GOLD.fact_sales_header
+where customer_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.244253 [debug] [Thread-4 (]: Began running node test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916
+[0m15:58:13.245781 [debug] [Thread-5 (]: Began running node test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5
+[0m15:58:13.246878 [debug] [Thread-7 (]: Using snowflake connection "test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7"
+[0m15:58:13.247851 [info ] [Thread-6 (]: 14 of 37 START test not_null_fact_sales_header_fact_sales_header_key ........... [RUN]
+[0m15:58:13.248842 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m15:58:13.249491 [info ] [Thread-4 (]: 15 of 37 START test not_null_fact_sales_header_store_dim_key ................... [RUN]
+[0m15:58:13.250073 [info ] [Thread-5 (]: 16 of 37 START test not_null_fact_sales_item_fact_sales_header_key ............. [RUN]
+[0m15:58:13.250704 [debug] [Thread-7 (]: On test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select date_dim_key
+from SALES_DEV.GOLD_GOLD.fact_sales_header
+where date_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.251314 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_date_date_dim_key.c488250d20, now test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead)
+[0m15:58:13.252093 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_customer_customer_dim_key.97d48cfc6a, now test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916)
+[0m15:58:13.252710 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_customer_customer_id.9775012dfc, now test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5)
+[0m15:58:13.253351 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m15:58:13.253894 [debug] [Thread-6 (]: Began compiling node test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead
+[0m15:58:13.254404 [debug] [Thread-4 (]: Began compiling node test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916
+[0m15:58:13.254877 [debug] [Thread-5 (]: Began compiling node test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5
+[0m15:58:13.260191 [debug] [Thread-6 (]: Writing injected SQL for node "test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead"
+[0m15:58:13.265270 [debug] [Thread-4 (]: Writing injected SQL for node "test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916"
+[0m15:58:13.270077 [debug] [Thread-5 (]: Writing injected SQL for node "test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5"
+[0m15:58:13.271048 [debug] [Thread-6 (]: Began executing node test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead
+[0m15:58:13.271872 [debug] [Thread-4 (]: Began executing node test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916
+[0m15:58:13.276999 [debug] [Thread-6 (]: Writing runtime sql for node "test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead"
+[0m15:58:13.277618 [debug] [Thread-5 (]: Began executing node test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5
+[0m15:58:13.280953 [debug] [Thread-4 (]: Writing runtime sql for node "test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916"
+[0m15:58:13.305473 [debug] [Thread-5 (]: Writing runtime sql for node "test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5"
+[0m15:58:13.306678 [debug] [Thread-6 (]: Using snowflake connection "test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead"
+[0m15:58:13.308235 [debug] [Thread-4 (]: Using snowflake connection "test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916"
+[0m15:58:13.309577 [debug] [Thread-6 (]: On test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select fact_sales_header_key
+from SALES_DEV.GOLD_GOLD.fact_sales_header
+where fact_sales_header_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.310643 [debug] [Thread-5 (]: Using snowflake connection "test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5"
+[0m15:58:13.311199 [debug] [Thread-4 (]: On test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select store_dim_key
+from SALES_DEV.GOLD_GOLD.fact_sales_header
+where store_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.311742 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m15:58:13.312306 [debug] [Thread-5 (]: On test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select fact_sales_header_key
+from SALES_DEV.GOLD_GOLD.fact_sales_item
+where fact_sales_header_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.312870 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:58:13.313600 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m15:58:13.688325 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.549 seconds
+[0m15:58:13.690679 [info ] [Thread-9 (]: 11 of 37 PASS not_null_fact_sales_header_country_dim_key ....................... [[32mPASS[0m in 0.60s]
+[0m15:58:13.691405 [debug] [Thread-9 (]: Finished running node test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191
+[0m15:58:13.691994 [debug] [Thread-9 (]: Began running node test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6
+[0m15:58:13.692591 [info ] [Thread-9 (]: 17 of 37 START test not_null_fact_sales_item_fact_sales_item_key ............... [RUN]
+[0m15:58:13.693286 [debug] [Thread-9 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_fact_sales_header_country_dim_key.3727713191, now test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6)
+[0m15:58:13.693781 [debug] [Thread-9 (]: Began compiling node test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6
+[0m15:58:13.699309 [debug] [Thread-9 (]: Writing injected SQL for node "test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6"
+[0m15:58:13.700048 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.550 seconds
+[0m15:58:13.702469 [info ] [Thread-2 (]: 9 of 37 PASS not_null_dim_store_store_code ..................................... [[32mPASS[0m in 0.62s]
+[0m15:58:13.703239 [debug] [Thread-9 (]: Began executing node test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6
+[0m15:58:13.703918 [debug] [Thread-2 (]: Finished running node test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42
+[0m15:58:13.709181 [debug] [Thread-9 (]: Writing runtime sql for node "test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6"
+[0m15:58:13.709867 [debug] [Thread-2 (]: Began running node test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f
+[0m15:58:13.710764 [info ] [Thread-2 (]: 18 of 37 START test not_null_fact_sales_item_product_dim_key ................... [RUN]
+[0m15:58:13.711752 [debug] [Thread-9 (]: Using snowflake connection "test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6"
+[0m15:58:13.712329 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_store_store_code.993f2cbf42, now test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f)
+[0m15:58:13.712943 [debug] [Thread-9 (]: On test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select fact_sales_item_key
+from SALES_DEV.GOLD_GOLD.fact_sales_item
+where fact_sales_item_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.713494 [debug] [Thread-2 (]: Began compiling node test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f
+[0m15:58:13.714441 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 0.466 seconds
+[0m15:58:13.715126 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.462 seconds
+[0m15:58:13.715684 [debug] [Thread-9 (]: Opening a new connection, currently in state init
+[0m15:58:13.721561 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.574 seconds
+[0m15:58:13.721048 [debug] [Thread-2 (]: Writing injected SQL for node "test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f"
+[0m15:58:13.723831 [info ] [Thread-8 (]: 12 of 37 PASS not_null_fact_sales_header_customer_dim_key ...................... [[32mPASS[0m in 0.59s]
+[0m15:58:13.725880 [info ] [Thread-7 (]: 13 of 37 PASS not_null_fact_sales_header_date_dim_key .......................... [[32mPASS[0m in 0.58s]
+[0m15:58:13.728191 [info ] [Thread-3 (]: 10 of 37 PASS not_null_dim_store_store_dim_key ................................. [[32mPASS[0m in 0.64s]
+[0m15:58:13.729061 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.417 seconds
+[0m15:58:13.729760 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.417 seconds
+[0m15:58:13.730707 [debug] [Thread-8 (]: Finished running node test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83
+[0m15:58:13.731250 [debug] [Thread-2 (]: Began executing node test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f
+[0m15:58:13.731896 [debug] [Thread-7 (]: Finished running node test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7
+[0m15:58:13.732507 [debug] [Thread-3 (]: Finished running node test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f
+[0m15:58:13.734456 [info ] [Thread-6 (]: 14 of 37 PASS not_null_fact_sales_header_fact_sales_header_key ................. [[32mPASS[0m in 0.48s]
+[0m15:58:13.736449 [info ] [Thread-4 (]: 15 of 37 PASS not_null_fact_sales_header_store_dim_key ......................... [[32mPASS[0m in 0.48s]
+[0m15:58:13.737304 [debug] [Thread-8 (]: Began running node test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d
+[0m15:58:13.741579 [debug] [Thread-2 (]: Writing runtime sql for node "test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f"
+[0m15:58:13.742257 [debug] [Thread-7 (]: Began running node test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3
+[0m15:58:13.742989 [debug] [Thread-3 (]: Began running node test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f
+[0m15:58:13.743771 [debug] [Thread-6 (]: Finished running node test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead
+[0m15:58:13.744421 [debug] [Thread-4 (]: Finished running node test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916
+[0m15:58:13.745050 [info ] [Thread-8 (]: 19 of 37 START test source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE ......... [RUN]
+[0m15:58:13.745997 [info ] [Thread-7 (]: 20 of 37 START test source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE ....... [RUN]
+[0m15:58:13.747054 [debug] [Thread-2 (]: Using snowflake connection "test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f"
+[0m15:58:13.747611 [info ] [Thread-3 (]: 21 of 37 START test source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID ......... [RUN]
+[0m15:58:13.748206 [debug] [Thread-6 (]: Began running node test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d
+[0m15:58:13.748831 [debug] [Thread-4 (]: Began running node test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de
+[0m15:58:13.749607 [debug] [Thread-8 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_fact_sales_header_customer_dim_key.aa85707f83, now test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d)
+[0m15:58:13.750421 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_fact_sales_header_date_dim_key.4ebacbeea7, now test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3)
+[0m15:58:13.751021 [debug] [Thread-2 (]: On test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select product_dim_key
+from SALES_DEV.GOLD_GOLD.fact_sales_item
+where product_dim_key is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.751678 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_dim_store_store_dim_key.22829ec56f, now test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f)
+[0m15:58:13.752255 [info ] [Thread-6 (]: 22 of 37 START test source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE  [RUN]
+[0m15:58:13.752831 [info ] [Thread-4 (]: 23 of 37 START test source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE ... [RUN]
+[0m15:58:13.753505 [debug] [Thread-8 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d
+[0m15:58:13.754065 [debug] [Thread-7 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3
+[0m15:58:13.754588 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m15:58:13.755100 [debug] [Thread-3 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f
+[0m15:58:13.755684 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_fact_sales_header_fact_sales_header_key.612c4e3ead, now test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d)
+[0m15:58:13.756270 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_fact_sales_header_store_dim_key.bda14aa916, now test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de)
+[0m15:58:13.761976 [debug] [Thread-8 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d"
+[0m15:58:13.762858 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.449 seconds
+[0m15:58:13.769855 [debug] [Thread-7 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3"
+[0m15:58:13.775567 [debug] [Thread-3 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f"
+[0m15:58:13.776256 [debug] [Thread-6 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d
+[0m15:58:13.776793 [debug] [Thread-4 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de
+[0m15:58:13.779021 [info ] [Thread-5 (]: 16 of 37 PASS not_null_fact_sales_item_fact_sales_header_key ................... [[32mPASS[0m in 0.53s]
+[0m15:58:13.779649 [debug] [Thread-8 (]: Began executing node test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d
+[0m15:58:13.780562 [debug] [Thread-7 (]: Began executing node test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3
+[0m15:58:13.785936 [debug] [Thread-6 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d"
+[0m15:58:13.786554 [debug] [Thread-3 (]: Began executing node test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f
+[0m15:58:13.791527 [debug] [Thread-4 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de"
+[0m15:58:13.792253 [debug] [Thread-5 (]: Finished running node test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5
+[0m15:58:13.795813 [debug] [Thread-8 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d"
+[0m15:58:13.800517 [debug] [Thread-7 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3"
+[0m15:58:13.812648 [debug] [Thread-3 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f"
+[0m15:58:13.813395 [debug] [Thread-6 (]: Began executing node test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d
+[0m15:58:13.814265 [debug] [Thread-5 (]: Began running node test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96
+[0m15:58:13.814755 [debug] [Thread-4 (]: Began executing node test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de
+[0m15:58:13.816343 [debug] [Thread-8 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d"
+[0m15:58:13.817541 [debug] [Thread-7 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3"
+[0m15:58:13.821121 [debug] [Thread-6 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d"
+[0m15:58:13.821971 [debug] [Thread-3 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f"
+[0m15:58:13.822496 [info ] [Thread-5 (]: 24 of 37 START test source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE ..... [RUN]
+[0m15:58:13.826074 [debug] [Thread-4 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de"
+[0m15:58:13.826667 [debug] [Thread-8 (]: On test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select COUNTRY_CODE
+from SALES_DEV.BRONZE.COUNTRY_MASTER
+where COUNTRY_CODE is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.827203 [debug] [Thread-7 (]: On test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select CURRENCY_CODE
+from SALES_DEV.BRONZE.CURRENCY_MASTER
+where CURRENCY_CODE is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.827967 [debug] [Thread-3 (]: On test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select CUSTOMER_ID
+from SALES_DEV.BRONZE.CUSTOMER_MASTER
+where CUSTOMER_ID is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.828887 [debug] [Thread-6 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d"
+[0m15:58:13.829538 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_fact_sales_item_fact_sales_header_key.4a0f3f07b5, now test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96)
+[0m15:58:13.830312 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m15:58:13.831224 [debug] [Thread-4 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de"
+[0m15:58:13.831700 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m15:58:13.832162 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:58:13.832673 [debug] [Thread-6 (]: On test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select CATEGORY_CODE
+from SALES_DEV.BRONZE.PRODUCT_CATEGORY_MASTER
+where CATEGORY_CODE is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.833256 [debug] [Thread-5 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96
+[0m15:58:13.833969 [debug] [Thread-4 (]: On test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select FAMILY_CODE
+from SALES_DEV.BRONZE.PRODUCT_FAMILY_MASTER
+where FAMILY_CODE is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.834792 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m15:58:13.839988 [debug] [Thread-5 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96"
+[0m15:58:13.840534 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:58:13.841488 [debug] [Thread-5 (]: Began executing node test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96
+[0m15:58:13.845992 [debug] [Thread-5 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96"
+[0m15:58:13.846979 [debug] [Thread-5 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96"
+[0m15:58:13.847484 [debug] [Thread-5 (]: On test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select MODEL_CODE
+from SALES_DEV.BRONZE.PRODUCT_MODEL_MASTER
+where MODEL_CODE is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:13.847983 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m15:58:14.233626 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.518 seconds
+[0m15:58:14.235887 [info ] [Thread-9 (]: 17 of 37 PASS not_null_fact_sales_item_fact_sales_item_key ..................... [[32mPASS[0m in 0.54s]
+[0m15:58:14.237237 [debug] [Thread-9 (]: Finished running node test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6
+[0m15:58:14.237896 [debug] [Thread-9 (]: Began running node test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09
+[0m15:58:14.238537 [info ] [Thread-9 (]: 25 of 37 START test source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE ......... [RUN]
+[0m15:58:14.239747 [debug] [Thread-9 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_fact_sales_item_fact_sales_item_key.81bf8f56e6, now test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09)
+[0m15:58:14.240273 [debug] [Thread-9 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09
+[0m15:58:14.246108 [debug] [Thread-9 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09"
+[0m15:58:14.246806 [debug] [Thread-9 (]: Began executing node test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09
+[0m15:58:14.250864 [debug] [Thread-9 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09"
+[0m15:58:14.251936 [debug] [Thread-9 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09"
+[0m15:58:14.252480 [debug] [Thread-9 (]: On test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select SKU_CODE
+from SALES_DEV.BRONZE.PRODUCT_SKU_MASTER
+where SKU_CODE is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.253056 [debug] [Thread-9 (]: Opening a new connection, currently in state init
+[0m15:58:14.290748 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.536 seconds
+[0m15:58:14.292757 [info ] [Thread-2 (]: 18 of 37 PASS not_null_fact_sales_item_product_dim_key ......................... [[32mPASS[0m in 0.58s]
+[0m15:58:14.293544 [debug] [Thread-2 (]: Finished running node test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f
+[0m15:58:14.294132 [debug] [Thread-2 (]: Began running node test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1
+[0m15:58:14.294721 [info ] [Thread-2 (]: 26 of 37 START test source_not_null_bronze_REGION_MASTER_REGION_CODE ........... [RUN]
+[0m15:58:14.295292 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.not_null_fact_sales_item_product_dim_key.652d535b6f, now test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1)
+[0m15:58:14.295746 [debug] [Thread-2 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1
+[0m15:58:14.302074 [debug] [Thread-2 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1"
+[0m15:58:14.302716 [debug] [Thread-2 (]: Began executing node test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1
+[0m15:58:14.306120 [debug] [Thread-2 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1"
+[0m15:58:14.307080 [debug] [Thread-2 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1"
+[0m15:58:14.307581 [debug] [Thread-2 (]: On test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select REGION_CODE
+from SALES_DEV.BRONZE.REGION_MASTER
+where REGION_CODE is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.308068 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m15:58:14.327485 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 0.497 seconds
+[0m15:58:14.329875 [info ] [Thread-8 (]: 19 of 37 PASS source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE ............... [[32mPASS[0m in 0.58s]
+[0m15:58:14.330643 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.483 seconds
+[0m15:58:14.331340 [debug] [Thread-8 (]: Finished running node test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d
+[0m15:58:14.332016 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.500 seconds
+[0m15:58:14.334156 [info ] [Thread-5 (]: 24 of 37 PASS source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE ........... [[32mPASS[0m in 0.50s]
+[0m15:58:14.334932 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.500 seconds
+[0m15:58:14.335537 [debug] [Thread-8 (]: Began running node test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520
+[0m15:58:14.337693 [info ] [Thread-7 (]: 20 of 37 PASS source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE ............. [[32mPASS[0m in 0.59s]
+[0m15:58:14.338447 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.498 seconds
+[0m15:58:14.339120 [debug] [Thread-5 (]: Finished running node test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96
+[0m15:58:14.341081 [info ] [Thread-6 (]: 22 of 37 PASS source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE ..... [[32mPASS[0m in 0.59s]
+[0m15:58:14.341701 [info ] [Thread-8 (]: 27 of 37 START test source_not_null_bronze_SALES_HEADER_TRANSACTION_ID ......... [RUN]
+[0m15:58:14.342385 [debug] [Thread-7 (]: Finished running node test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3
+[0m15:58:14.344302 [info ] [Thread-4 (]: 23 of 37 PASS source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE ......... [[32mPASS[0m in 0.59s]
+[0m15:58:14.345132 [debug] [Thread-5 (]: Began running node test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6
+[0m15:58:14.345897 [debug] [Thread-6 (]: Finished running node test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d
+[0m15:58:14.346481 [debug] [Thread-8 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_COUNTRY_MASTER_COUNTRY_CODE.6949eca15d, now test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520)
+[0m15:58:14.347051 [debug] [Thread-7 (]: Began running node test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0
+[0m15:58:14.347746 [debug] [Thread-4 (]: Finished running node test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de
+[0m15:58:14.348249 [info ] [Thread-5 (]: 28 of 37 START test source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID ...... [RUN]
+[0m15:58:14.348976 [debug] [Thread-6 (]: Began running node test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8
+[0m15:58:14.349630 [debug] [Thread-8 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520
+[0m15:58:14.350232 [info ] [Thread-7 (]: 29 of 37 START test source_not_null_bronze_STORE_MASTER_STORE_CODE ............. [RUN]
+[0m15:58:14.350913 [debug] [Thread-4 (]: Began running node test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd
+[0m15:58:14.351622 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_PRODUCT_MODEL_MASTER_MODEL_CODE.0babb42f96, now test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6)
+[0m15:58:14.352148 [info ] [Thread-6 (]: 30 of 37 START test source_not_null_bronze_TAX_MASTER_TAX_CODE ................. [RUN]
+[0m15:58:14.358189 [debug] [Thread-8 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520"
+[0m15:58:14.358916 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.527 seconds
+[0m15:58:14.366413 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_CURRENCY_MASTER_CURRENCY_CODE.f990c1cec3, now test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0)
+[0m15:58:14.367040 [info ] [Thread-4 (]: 31 of 37 START test unique_dim_country_country_dim_key ......................... [RUN]
+[0m15:58:14.367649 [debug] [Thread-5 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6
+[0m15:58:14.368535 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_PRODUCT_CATEGORY_MASTER_CATEGORY_CODE.015efe3f6d, now test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8)
+[0m15:58:14.371095 [info ] [Thread-3 (]: 21 of 37 PASS source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID ............... [[32mPASS[0m in 0.62s]
+[0m15:58:14.371720 [debug] [Thread-8 (]: Began executing node test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520
+[0m15:58:14.372196 [debug] [Thread-7 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0
+[0m15:58:14.372783 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_PRODUCT_FAMILY_MASTER_FAMILY_CODE.0b8c0b36de, now test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd)
+[0m15:58:14.378145 [debug] [Thread-5 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6"
+[0m15:58:14.378683 [debug] [Thread-6 (]: Began compiling node test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8
+[0m15:58:14.379353 [debug] [Thread-3 (]: Finished running node test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f
+[0m15:58:14.382910 [debug] [Thread-8 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520"
+[0m15:58:14.389420 [debug] [Thread-7 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0"
+[0m15:58:14.389975 [debug] [Thread-4 (]: Began compiling node test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd
+[0m15:58:14.395137 [debug] [Thread-6 (]: Writing injected SQL for node "test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8"
+[0m15:58:14.395681 [debug] [Thread-5 (]: Began executing node test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6
+[0m15:58:14.396240 [debug] [Thread-3 (]: Began running node test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4
+[0m15:58:14.397781 [debug] [Thread-8 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520"
+[0m15:58:14.412456 [debug] [Thread-4 (]: Writing injected SQL for node "test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd"
+[0m15:58:14.413059 [debug] [Thread-7 (]: Began executing node test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0
+[0m15:58:14.416806 [debug] [Thread-5 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6"
+[0m15:58:14.417418 [debug] [Thread-6 (]: Began executing node test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8
+[0m15:58:14.417946 [info ] [Thread-3 (]: 32 of 37 START test unique_dim_customer_customer_dim_key ....................... [RUN]
+[0m15:58:14.418527 [debug] [Thread-8 (]: On test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select TRANSACTION_ID
+from SALES_DEV.BRONZE.SALES_HEADER
+where TRANSACTION_ID is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.422442 [debug] [Thread-7 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0"
+[0m15:58:14.423386 [debug] [Thread-4 (]: Began executing node test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd
+[0m15:58:14.428200 [debug] [Thread-6 (]: Writing runtime sql for node "test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8"
+[0m15:58:14.429213 [debug] [Thread-5 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6"
+[0m15:58:14.429784 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_CUSTOMER_MASTER_CUSTOMER_ID.cae5b3b31f, now test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4)
+[0m15:58:14.430308 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m15:58:14.434011 [debug] [Thread-4 (]: Writing runtime sql for node "test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd"
+[0m15:58:14.434931 [debug] [Thread-7 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0"
+[0m15:58:14.435754 [debug] [Thread-5 (]: On test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select TRANSACTION_LINE_ID
+from SALES_DEV.BRONZE.SALES_ITEM
+where TRANSACTION_LINE_ID is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.436618 [debug] [Thread-6 (]: Using snowflake connection "test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8"
+[0m15:58:14.437191 [debug] [Thread-3 (]: Began compiling node test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4
+[0m15:58:14.438174 [debug] [Thread-7 (]: On test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select STORE_CODE
+from SALES_DEV.BRONZE.STORE_MASTER
+where STORE_CODE is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.439181 [debug] [Thread-4 (]: Using snowflake connection "test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd"
+[0m15:58:14.439678 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m15:58:14.440214 [debug] [Thread-6 (]: On test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select TAX_CODE
+from SALES_DEV.BRONZE.TAX_MASTER
+where TAX_CODE is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.445444 [debug] [Thread-3 (]: Writing injected SQL for node "test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4"
+[0m15:58:14.445985 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m15:58:14.446549 [debug] [Thread-4 (]: On test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    country_dim_key as unique_field,
+    count(*) as n_records
+
+from SALES_DEV.GOLD_GOLD.dim_country
+where country_dim_key is not null
+group by country_dim_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.447179 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m15:58:14.448289 [debug] [Thread-3 (]: Began executing node test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4
+[0m15:58:14.448851 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:58:14.452551 [debug] [Thread-3 (]: Writing runtime sql for node "test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4"
+[0m15:58:14.453882 [debug] [Thread-3 (]: Using snowflake connection "test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4"
+[0m15:58:14.454426 [debug] [Thread-3 (]: On test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    customer_dim_key as unique_field,
+    count(*) as n_records
+
+from SALES_DEV.GOLD_GOLD.dim_customer
+where customer_dim_key is not null
+group by customer_dim_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.454893 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:58:14.769696 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.517 seconds
+[0m15:58:14.771996 [info ] [Thread-9 (]: 25 of 37 PASS source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE ............... [[32mPASS[0m in 0.53s]
+[0m15:58:14.772711 [debug] [Thread-9 (]: Finished running node test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09
+[0m15:58:14.773343 [debug] [Thread-9 (]: Began running node test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c
+[0m15:58:14.773936 [info ] [Thread-9 (]: 33 of 37 START test unique_dim_date_date_dim_key ............................... [RUN]
+[0m15:58:14.774539 [debug] [Thread-9 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_PRODUCT_SKU_MASTER_SKU_CODE.be49552d09, now test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c)
+[0m15:58:14.775033 [debug] [Thread-9 (]: Began compiling node test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c
+[0m15:58:14.780615 [debug] [Thread-9 (]: Writing injected SQL for node "test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c"
+[0m15:58:14.782346 [debug] [Thread-9 (]: Began executing node test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c
+[0m15:58:14.786113 [debug] [Thread-9 (]: Writing runtime sql for node "test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c"
+[0m15:58:14.787727 [debug] [Thread-9 (]: Using snowflake connection "test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c"
+[0m15:58:14.788250 [debug] [Thread-9 (]: On test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    date_dim_key as unique_field,
+    count(*) as n_records
+
+from SALES_DEV.GOLD_GOLD.dim_date
+where date_dim_key is not null
+group by date_dim_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.788742 [debug] [Thread-9 (]: Opening a new connection, currently in state init
+[0m15:58:14.841414 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.533 seconds
+[0m15:58:14.843643 [info ] [Thread-2 (]: 26 of 37 PASS source_not_null_bronze_REGION_MASTER_REGION_CODE ................. [[32mPASS[0m in 0.55s]
+[0m15:58:14.844417 [debug] [Thread-2 (]: Finished running node test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1
+[0m15:58:14.845083 [debug] [Thread-2 (]: Began running node test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95
+[0m15:58:14.845653 [info ] [Thread-2 (]: 34 of 37 START test unique_dim_product_product_dim_key ......................... [RUN]
+[0m15:58:14.846256 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_REGION_MASTER_REGION_CODE.30a9bad6d1, now test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95)
+[0m15:58:14.846745 [debug] [Thread-2 (]: Began compiling node test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95
+[0m15:58:14.852176 [debug] [Thread-2 (]: Writing injected SQL for node "test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95"
+[0m15:58:14.852830 [debug] [Thread-2 (]: Began executing node test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95
+[0m15:58:14.856450 [debug] [Thread-2 (]: Writing runtime sql for node "test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95"
+[0m15:58:14.857587 [debug] [Thread-2 (]: Using snowflake connection "test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95"
+[0m15:58:14.858124 [debug] [Thread-2 (]: On test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    product_dim_key as unique_field,
+    count(*) as n_records
+
+from SALES_DEV.GOLD_GOLD.dim_product
+where product_dim_key is not null
+group by product_dim_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.858615 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m15:58:14.937828 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 0.507 seconds
+[0m15:58:14.938792 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.493 seconds
+[0m15:58:14.941186 [info ] [Thread-8 (]: 27 of 37 PASS source_not_null_bronze_SALES_HEADER_TRANSACTION_ID ............... [[32mPASS[0m in 0.59s]
+[0m15:58:14.943408 [info ] [Thread-7 (]: 29 of 37 PASS source_not_null_bronze_STORE_MASTER_STORE_CODE ................... [[32mPASS[0m in 0.58s]
+[0m15:58:14.944208 [debug] [Thread-8 (]: Finished running node test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520
+[0m15:58:14.944997 [debug] [Thread-7 (]: Finished running node test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0
+[0m15:58:14.945666 [debug] [Thread-8 (]: Began running node test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950
+[0m15:58:14.946372 [debug] [Thread-7 (]: Began running node test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850
+[0m15:58:14.946979 [info ] [Thread-8 (]: 35 of 37 START test unique_dim_store_store_dim_key ............................. [RUN]
+[0m15:58:14.947590 [info ] [Thread-7 (]: 36 of 37 START test unique_fact_sales_header_fact_sales_header_key ............. [RUN]
+[0m15:58:14.948259 [debug] [Thread-8 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_SALES_HEADER_TRANSACTION_ID.11a53d3520, now test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950)
+[0m15:58:14.948827 [debug] [Thread-7 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_STORE_MASTER_STORE_CODE.e7dddf59e0, now test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850)
+[0m15:58:14.949428 [debug] [Thread-8 (]: Began compiling node test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950
+[0m15:58:14.949905 [debug] [Thread-7 (]: Began compiling node test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850
+[0m15:58:14.957366 [debug] [Thread-8 (]: Writing injected SQL for node "test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950"
+[0m15:58:14.958119 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.518 seconds
+[0m15:58:14.963524 [debug] [Thread-7 (]: Writing injected SQL for node "test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850"
+[0m15:58:14.966021 [info ] [Thread-5 (]: 28 of 37 PASS source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID ............ [[32mPASS[0m in 0.61s]
+[0m15:58:14.966641 [debug] [Thread-8 (]: Began executing node test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950
+[0m15:58:14.967535 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.513 seconds
+[0m15:58:14.968393 [debug] [Thread-5 (]: Finished running node test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6
+[0m15:58:14.969024 [debug] [Thread-7 (]: Began executing node test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850
+[0m15:58:14.972612 [debug] [Thread-8 (]: Writing runtime sql for node "test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950"
+[0m15:58:14.973428 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.525 seconds
+[0m15:58:14.975411 [info ] [Thread-3 (]: 32 of 37 PASS unique_dim_customer_customer_dim_key ............................. [[32mPASS[0m in 0.55s]
+[0m15:58:14.976072 [debug] [Thread-5 (]: Began running node test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011
+[0m15:58:14.979846 [debug] [Thread-7 (]: Writing runtime sql for node "test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850"
+[0m15:58:14.982134 [info ] [Thread-4 (]: 31 of 37 PASS unique_dim_country_country_dim_key ............................... [[32mPASS[0m in 0.61s]
+[0m15:58:14.983347 [debug] [Thread-6 (]: SQL status: SUCCESS 1 in 0.536 seconds
+[0m15:58:14.984585 [debug] [Thread-8 (]: Using snowflake connection "test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950"
+[0m15:58:14.985787 [debug] [Thread-3 (]: Finished running node test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4
+[0m15:58:14.986337 [info ] [Thread-5 (]: 37 of 37 START test unique_fact_sales_item_fact_sales_item_key ................. [RUN]
+[0m15:58:14.987222 [debug] [Thread-4 (]: Finished running node test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd
+[0m15:58:14.988218 [debug] [Thread-7 (]: Using snowflake connection "test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850"
+[0m15:58:14.990175 [info ] [Thread-6 (]: 30 of 37 PASS source_not_null_bronze_TAX_MASTER_TAX_CODE ....................... [[32mPASS[0m in 0.62s]
+[0m15:58:14.990840 [debug] [Thread-8 (]: On test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    store_dim_key as unique_field,
+    count(*) as n_records
+
+from SALES_DEV.GOLD_GOLD.dim_store
+where store_dim_key is not null
+group by store_dim_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.991633 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.sales_pipeline.source_not_null_bronze_SALES_ITEM_TRANSACTION_LINE_ID.1f5d438ae6, now test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011)
+[0m15:58:14.992342 [debug] [Thread-7 (]: On test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    fact_sales_header_key as unique_field,
+    count(*) as n_records
+
+from SALES_DEV.GOLD_GOLD.fact_sales_header
+where fact_sales_header_key is not null
+group by fact_sales_header_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:14.993136 [debug] [Thread-6 (]: Finished running node test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8
+[0m15:58:14.993726 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m15:58:14.994214 [debug] [Thread-5 (]: Began compiling node test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011
+[0m15:58:14.994719 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m15:58:15.000105 [debug] [Thread-5 (]: Writing injected SQL for node "test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011"
+[0m15:58:15.001097 [debug] [Thread-5 (]: Began executing node test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011
+[0m15:58:15.005789 [debug] [Thread-5 (]: Writing runtime sql for node "test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011"
+[0m15:58:15.006862 [debug] [Thread-5 (]: Using snowflake connection "test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011"
+[0m15:58:15.007416 [debug] [Thread-5 (]: On test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "sales_pipeline", "target_name": "dev", "node_id": "test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    fact_sales_item_key as unique_field,
+    count(*) as n_records
+
+from SALES_DEV.GOLD_GOLD.fact_sales_item
+where fact_sales_item_key is not null
+group by fact_sales_item_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:58:15.007927 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m15:58:15.276816 [debug] [Thread-9 (]: SQL status: SUCCESS 1 in 0.488 seconds
+[0m15:58:15.279157 [info ] [Thread-9 (]: 33 of 37 PASS unique_dim_date_date_dim_key ..................................... [[32mPASS[0m in 0.50s]
+[0m15:58:15.280978 [debug] [Thread-9 (]: Finished running node test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c
+[0m15:58:15.319219 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.460 seconds
+[0m15:58:15.321528 [info ] [Thread-2 (]: 34 of 37 PASS unique_dim_product_product_dim_key ............................... [[32mPASS[0m in 0.48s]
+[0m15:58:15.322243 [debug] [Thread-2 (]: Finished running node test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95
+[0m15:58:15.451179 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 0.457 seconds
+[0m15:58:15.453626 [info ] [Thread-8 (]: 35 of 37 PASS unique_dim_store_store_dim_key ................................... [[32mPASS[0m in 0.51s]
+[0m15:58:15.455331 [debug] [Thread-8 (]: Finished running node test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950
+[0m15:58:15.465037 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 0.470 seconds
+[0m15:58:15.467362 [info ] [Thread-7 (]: 36 of 37 PASS unique_fact_sales_header_fact_sales_header_key ................... [[32mPASS[0m in 0.52s]
+[0m15:58:15.469783 [debug] [Thread-7 (]: Finished running node test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850
+[0m15:58:15.489441 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.481 seconds
+[0m15:58:15.491537 [info ] [Thread-5 (]: 37 of 37 PASS unique_fact_sales_item_fact_sales_item_key ....................... [[32mPASS[0m in 0.50s]
+[0m15:58:15.492220 [debug] [Thread-5 (]: Finished running node test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011
+[0m15:58:15.496352 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m15:58:15.497139 [debug] [Dummy-1   ]: Connection 'test.sales_pipeline.unique_dim_product_product_dim_key.9e37347d95' was properly closed.
+[0m15:58:15.497881 [debug] [Dummy-1   ]: Connection 'test.sales_pipeline.unique_dim_customer_customer_dim_key.3ab45c0ed4' was properly closed.
+[0m15:58:15.498599 [debug] [Dummy-1   ]: Connection 'test.sales_pipeline.unique_dim_country_country_dim_key.abf092defd' was properly closed.
+[0m15:58:15.499255 [debug] [Dummy-1   ]: Connection 'test.sales_pipeline.unique_fact_sales_item_fact_sales_item_key.ce83b43011' was properly closed.
+[0m15:58:15.499679 [debug] [Dummy-1   ]: Connection 'test.sales_pipeline.source_not_null_bronze_TAX_MASTER_TAX_CODE.fc106b2be8' was properly closed.
+[0m15:58:15.500104 [debug] [Dummy-1   ]: Connection 'test.sales_pipeline.unique_fact_sales_header_fact_sales_header_key.a86e157850' was properly closed.
+[0m15:58:15.500505 [debug] [Dummy-1   ]: Connection 'test.sales_pipeline.unique_dim_store_store_dim_key.e95c7f9950' was properly closed.
+[0m15:58:15.501013 [debug] [Dummy-1   ]: Connection 'test.sales_pipeline.unique_dim_date_date_dim_key.edd4ff9f2c' was properly closed.
+[0m15:58:15.501548 [info ] [Dummy-1   ]: 
+[0m15:58:15.502029 [info ] [Dummy-1   ]: Finished running 37 data tests in 0 hours 0 minutes and 3.95 seconds (3.95s).
+[0m15:58:15.506700 [debug] [Dummy-1   ]: Command end result
+[0m15:58:15.619027 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m15:58:15.620979 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m15:58:15.629079 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m15:58:15.629592 [info ] [Dummy-1   ]: 
+[0m15:58:15.630140 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m15:58:15.630618 [info ] [Dummy-1   ]: 
+[0m15:58:15.631062 [info ] [Dummy-1   ]: Done. PASS=37 WARN=0 ERROR=0 SKIP=0 TOTAL=37
+[0m15:58:15.632739 [debug] [Dummy-1   ]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 5.5080485, "process_in_blocks": "0", "process_kernel_time": 1.17, "process_mem_max_rss": "504396", "process_out_blocks": "0", "process_user_time": 5.58}
+[0m15:58:15.633408 [debug] [Dummy-1   ]: Command `cli test` succeeded at 15:58:15.633150 after 5.51 seconds
+[0m15:58:15.633907 [debug] [Dummy-1   ]: Flushing usage events

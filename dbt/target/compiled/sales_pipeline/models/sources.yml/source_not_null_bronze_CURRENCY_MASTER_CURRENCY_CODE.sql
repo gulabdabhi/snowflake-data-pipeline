@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select CURRENCY_CODE
+from SALES_DEV.BRONZE.CURRENCY_MASTER
+where CURRENCY_CODE is null
+
+

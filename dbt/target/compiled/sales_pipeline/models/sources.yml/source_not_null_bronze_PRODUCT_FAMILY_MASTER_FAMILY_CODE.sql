@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select FAMILY_CODE
+from SALES_DEV.BRONZE.PRODUCT_FAMILY_MASTER
+where FAMILY_CODE is null
+
+

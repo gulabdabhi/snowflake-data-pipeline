@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select TRANSACTION_LINE_ID
+from SALES_DEV.BRONZE.SALES_ITEM
+where TRANSACTION_LINE_ID is null
+
+

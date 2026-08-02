@@ -1,0 +1,31 @@
+
+  create or replace   view SALES_DEV.GOLD_SILVER.stg_product_family_master
+  
+   as (
+    -- Deduplicated product family master with data quality validation
+
+
+select
+    family_code,
+    family_name,
+    category_code,
+    launch_year,
+    created_at,
+    source_system,
+    case
+        when family_code is null then false
+        when family_name is null or trim(family_name) = '' then false
+        when category_code is null then false
+        when launch_year is null then false
+        else true
+    end as is_valid_record,
+    __file_name,
+    __row_number as __source_row_number,
+    __load_ts as __bronze_load_ts
+from SALES_DEV.BRONZE.PRODUCT_FAMILY_MASTER
+qualify row_number() over (
+    partition by family_code
+    order by __load_ts desc, __row_number desc
+) = 1
+  );
+

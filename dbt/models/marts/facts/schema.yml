@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: fact_sales_header
+    description: "Transaction-level fact table with dimension keys and monetary measures"
+    columns:
+      - name: fact_sales_header_key
+        description: "Unique transaction fact key"
+        tests: [not_null, unique]
+      - name: customer_dim_key
+        description: "FK to dim_customer"
+        tests: [not_null]
+      - name: store_dim_key
+        description: "FK to dim_store"
+        tests: [not_null]
+      - name: country_dim_key
+        description: "FK to dim_country"
+        tests: [not_null]
+      - name: date_dim_key
+        description: "FK to dim_date"
+        tests: [not_null]
+
+  - name: fact_sales_item
+    description: "Line-item level fact with product dimension key and quantity/price measures"
+    columns:
+      - name: fact_sales_item_key
+        description: "Unique line item fact key"
+        tests: [not_null, unique]
+      - name: fact_sales_header_key
+        description: "FK to fact_sales_header"
+        tests: [not_null]
+      - name: product_dim_key
+        description: "FK to dim_product"
+        tests: [not_null]
+
+  - name: fact_sales_daily
+    description: "Daily aggregated sales by store, country, and channel"
+
+  - name: fact_sales_monthly
+    description: "Monthly aggregated sales for executive reporting"

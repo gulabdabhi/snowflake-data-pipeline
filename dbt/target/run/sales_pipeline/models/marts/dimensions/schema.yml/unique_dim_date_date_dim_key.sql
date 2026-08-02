@@ -1,0 +1,22 @@
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    date_dim_key as unique_field,
+    count(*) as n_records
+
+from SALES_DEV.GOLD_GOLD.dim_date
+where date_dim_key is not null
+group by date_dim_key
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test

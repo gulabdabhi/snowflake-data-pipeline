@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_region_master
+    description: "Deduplicated region master from bronze layer"
+  - name: stg_country_master
+    description: "Deduplicated country master with region/currency/tax codes"
+  - name: stg_currency_master
+    description: "Deduplicated currency reference data"
+  - name: stg_tax_master
+    description: "Deduplicated tax configuration data"
+  - name: stg_product_category_master
+    description: "Deduplicated product category (top-level hierarchy)"
+  - name: stg_product_family_master
+    description: "Deduplicated product family (second-level hierarchy)"
+  - name: stg_product_model_master
+    description: "Deduplicated product model (third-level hierarchy)"
+  - name: stg_product_sku_master
+    description: "Deduplicated product SKU (lowest grain)"
+  - name: stg_store_master
+    description: "Deduplicated store master with location attributes"
+  - name: stg_customer_master
+    description: "Deduplicated customer master with demographics"
+  - name: stg_sales_header
+    description: "Deduplicated sales transaction headers"
+  - name: stg_sales_item
+    description: "Deduplicated sales line items"

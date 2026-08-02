@@ -1,0 +1,12 @@
+sales_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: ""
+      user: ""
+      role: ACCOUNTADMIN
+      database: SALES_DEV
+      warehouse: COMPUTE_WH
+      schema: GOLD
+      threads: 8
