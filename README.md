@@ -1,83 +1,78 @@
 # Snowflake Data Pipeline
 
-End-to-end sales data pipeline built on Snowflake using the Medallion Architecture (Bronze → Silver → Gold) with Dynamic Tables, Cortex Analyst, and automated scheduling.
-
-## Architecture
-
-```
-Bronze (Raw)  →  Silver (Cleansed)  →  Gold (Dimensional Model)
-   ↓                    ↓                       ↓
-CSV Ingestion     Master Tables         Star Schema + Semantic View
-via Stages        with Validation       for Analytics & Cortex Analyst
-```
+Sales data pipeline on Snowflake using Medallion Architecture (Bronze → Silver → Gold) with two implementations: native SQL and dbt.
 
 ## Project Structure
 
 ```
 snowflake-data-pipeline/
 ├── sql/
-│   ├── bronze/         — Database setup, stages, and raw data loading
-│   ├── silver/         — Cleansed master tables (country, product, store, customer, sales)
-│   ├── gold/           — Dimensions, facts, aggregations, constraints, semantic model
-│   └── ops/            — Task automation and scheduling
-├── data/               — CSV source files for data loading
+│   ├── bronze/     — Database setup, stages, tables (01-02), data loading (03)
+│   ├── silver/     — Cleansed master tables (04-08)
+│   ├── gold/       — Dimensions, facts, constraints, semantic model (09-16)
+│   └── ops/        — Task automation (17)
+├── dbt/
+│   ├── models/
+│   │   ├── staging/    — Source cleansing (stg_* models)
+│   │   └── marts/      — dimensions/ and facts/
+│   ├── dbt_project.yml
+│   └── profiles.yml
+├── data/           — CSV source files (initial + delta loads)
 └── README.md
 ```
 
-## SQL Scripts (Execution Order)
+## SQL Scripts (run in order: 01 → 17)
 
-### Bronze Layer
-| # | File | Description |
-|---|------|-------------|
-| 01 | `01-db-schema-ddl.sql` | Database, schemas, and warehouse setup |
-| 02 | `02-stage-data-loading-ddl.sql` | Internal stages and raw data ingestion |
+| Layer | Scripts | What They Do |
+|-------|---------|--------------|
+| Bronze | 01 | Database, schemas, warehouse setup |
+| Bronze | 02 | Internal stages, file formats, bronze table DDL |
+| Bronze | **03** | **Initial data load** (COPY INTO) — run AFTER uploading CSVs |
+| Silver | 04-08 | Country, product, store, customer, sales masters |
+| Gold | 09-16 | SCD2 dimensions, fact tables, aggregations, PK/FK, semantic view |
+| Ops | 17 | Snowflake Tasks for automated refresh |
 
-### Silver Layer
-| # | File | Description |
-|---|------|-------------|
-| 03 | `03-country-master-silver.sql` | Country, region, currency, tax masters |
-| 04 | `04-product-sku-master.sql` | Product hierarchy (Category → Family → Model → SKU) |
-| 05 | `05-store-master.sql` | Store master with location attributes |
-| 06 | `06-customer-master.sql` | Customer master with demographics |
-| 07 | `07-sales-header-item.sql` | Sales transaction header and line items |
+## dbt Project (same pipeline as SQL, with testing & lineage)
 
-### Gold Layer
-| # | File | Description |
-|---|------|-------------|
-| 08 | `08-country-dim.sql` | DIM_COUNTRY (SCD2) — geography, currency, tax |
-| 09 | `09-product-dim.sql` | DIM_PRODUCT (SCD2) — full product hierarchy |
-| 10 | `10-store-dim.sql` | DIM_STORE (SCD2) — location and operations |
-| 11 | `11-customer-dim.sql` | DIM_CUSTOMER (SCD2) — demographics and loyalty |
-| 12 | `12-sales-fact.sql` | FACT_SALES_HEADER + FACT_SALES_ITEM |
-| 13 | `13-agg-fact.sql` | Aggregated facts (daily, weekly, monthly) |
-| 14 | `14-fact-dim-relation.sql` | Primary key and foreign key constraints |
-| 15 | `15-talk-to-your-data.sql` | Cortex Analyst semantic view deployment |
+| Layer | Models | What They Do |
+|-------|--------|--------------|
+| Staging | 12 stg_* models | Source cleansing with validation |
+| Marts | 5 dimensions + 4 facts | Star schema with unique/not_null tests |
 
-### Operations
-| # | File | Description |
-|---|------|-------------|
-| 16 | `16-task-to-automate-data-loading.sql` | Snowflake Tasks for automated refresh |
+```bash
+dbt build    # Run + test all models in dependency order
+```
 
 ## Key Features
 
-- **Dynamic Tables** — Incremental refresh with `TARGET_LAG` for near real-time updates
-- **Star Schema** — Fact and dimension tables with hash-based surrogate keys
-- **SCD Type 2** — Historical tracking on all dimension tables
-- **Cortex Analyst** — Semantic view with 14 metrics and 8 verified queries for natural language analytics
-- **Task Automation** — Scheduled pipeline orchestration
+- **Dynamic Tables** with incremental refresh via `TARGET_LAG`
+- **Star Schema** with hash-based surrogate keys and SCD Type 2
+- **Cortex Analyst** semantic view (14 metrics, 8 verified queries)
+- **Task Automation** for scheduled pipeline orchestration
+- **dbt Testing** with source and model-level constraints
 
 ## Snowflake Objects
 
-| Layer | Database.Schema |
-|-------|----------------|
+| Layer | Location |
+|-------|----------|
 | Bronze | `SALES_DEV.BRONZE` |
 | Silver | `SALES_DEV.SILVER` |
-| Gold | `SALES_DEV.GOLD` |
+| Gold / dbt target | `SALES_DEV.GOLD` |
 | Semantic View | `SALES_DEV.GOLD.SALES_ANALYTICS` |
 
 ## Getting Started
 
-1. Run scripts in order (01 → 16)
-2. Upload CSV files to the `data/` folder, then load via stages
-3. Dynamic tables auto-refresh downstream once base tables are populated
-4. Query your data with natural language via Cortex Analyst using the semantic view
+### Phase 1: Infrastructure Setup
+1. Run script `01` — creates database, schemas, warehouse
+2. Run script `02` — creates internal stages, file formats, bronze tables
+
+### Phase 2: Initial Full Load (end-to-end test)
+3. Upload **initial CSV files** to `data/` folder → PUT into internal stages
+4. Run script `03` — loads all CSVs into bronze tables
+5. Run scripts `04-16` — Dynamic Tables auto-build silver → gold layers
+6. Verify end-to-end: query `SALES_DEV.GOLD.SALES_ANALYTICS` via Cortex Analyst
+
+### Phase 3: Delta / Incremental Load
+7. Upload **new/changed CSV files** to stages (simulates production delta)
+8. Run script `17` (Tasks) — triggers incremental refresh via streams + Dynamic Tables
+9. Verify delta records flow through silver → gold automatically
