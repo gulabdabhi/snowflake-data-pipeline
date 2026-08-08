@@ -54,7 +54,7 @@ COPY FILES INTO @SALES_DEV.GOLD.SEMANTIC_MODELS
 FROM 'snow://workspace/USER$.PUBLIC.DEFAULT$/versions/live/'
 FILES=('cortex_project/SALES_ANALYTICS.sv.yaml');
 
--- Verify the file is uploaded
+-- Verify the file is uploadedSALES_DEV.GOLD.FACT_SALES_DAILY
 LIST @SALES_DEV.GOLD.SEMANTIC_MODELS;
 
 -- =====================================================
