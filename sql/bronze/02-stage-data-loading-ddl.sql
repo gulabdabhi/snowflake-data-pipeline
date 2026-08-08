@@ -170,6 +170,34 @@ CREATE OR REPLACE TABLE SALES_DEV.BRONZE.PRODUCT_COUNTRY_AVAILABILITY (
     __LOAD_TS               TIMESTAMP_NTZ   COMMENT 'Timestamp when record was loaded'
 ) COMMENT = 'Bronze layer product availability by country with local launch dates';
 
+-- =====================================================
+-- STORE_MASTER Table
+-- =====================================================
+CREATE OR REPLACE TABLE SALES_DEV.BRONZE.STORE_MASTER (
+    STORE_CODE              VARCHAR(20)     COMMENT 'Unique store identifier code',
+    STORE_NAME              VARCHAR(100)    COMMENT 'Store display name',
+    COUNTRY_CODE            VARCHAR(3)      COMMENT 'Country where store is located',
+    REGION_CODE             VARCHAR(10)     COMMENT 'Geographic region reference',
+    TAX_JURISDICTION_CODE   VARCHAR(20)     COMMENT 'Tax jurisdiction for the store location',
+    FORMAT_CODE             VARCHAR(10)     COMMENT 'Store format type (MALL/MINI/etc.)',
+    CITY                    VARCHAR(100)    COMMENT 'City where store is located',
+    STATE_CODE              VARCHAR(10)     COMMENT 'State or province code',
+    POSTAL_CODE             VARCHAR(20)     COMMENT 'Postal or ZIP code',
+    ADDRESS_LINE1           VARCHAR(200)    COMMENT 'Street address',
+    LATITUDE                NUMBER(10,6)    COMMENT 'Geographic latitude coordinate',
+    LONGITUDE               NUMBER(10,6)    COMMENT 'Geographic longitude coordinate',
+    STORE_OPEN_DATE         DATE            COMMENT 'Date store opened for business',
+    STORE_CLOSE_DATE        DATE            COMMENT 'Date store closed (if applicable)',
+    LIFECYCLE_STATUS        VARCHAR(20)     COMMENT 'Current store operational status',
+    FLOOR_AREA_SQFT         NUMBER(10)      COMMENT 'Store floor area in square feet',
+    ANNUAL_RENT_USD         NUMBER(12)      COMMENT 'Annual rent amount in USD',
+    IS_ACTIVE               VARCHAR(1)      COMMENT 'Active status flag (Y/N)',
+    EFFECTIVE_START_DATE    DATE            COMMENT 'Record effective start date',
+    EFFECTIVE_END_DATE      DATE            COMMENT 'Record effective end date',
+    __FILE_NAME             VARCHAR(500)    COMMENT 'Source file name from stage',
+    __ROW_NUMBER            NUMBER          COMMENT 'Row number within source file',
+    __LOAD_TS               TIMESTAMP_NTZ   COMMENT 'Timestamp when record was loaded'
+) COMMENT = 'Bronze layer store master data with location and operational attributes';
 
 -- =====================================================
 -- CUSTOMER_MASTER Table
@@ -205,191 +233,42 @@ CREATE OR REPLACE TABLE SALES_DEV.BRONZE.CUSTOMER_MASTER (
     __LOAD_TS               TIMESTAMP_NTZ   COMMENT 'Timestamp when record was loaded'
 ) COMMENT = 'Bronze layer customer master data with demographic and loyalty attributes';
 
+-- =====================================================
+-- SALES_HEADER Table
+-- =====================================================
+CREATE OR REPLACE TABLE SALES_DEV.BRONZE.SALES_HEADER (
+    TRANSACTION_ID          VARCHAR(50)     COMMENT 'Unique transaction UUID identifier',
+    TRANSACTION_NUMBER      VARCHAR(20)     COMMENT 'Business transaction reference number',
+    TRANSACTION_TIMESTAMP   DATE            COMMENT 'Date and time of transaction',
+    CUSTOMER_ID             VARCHAR(50)     COMMENT 'Reference to customer master',
+    STORE_ID                VARCHAR(20)     COMMENT 'Reference to store master',
+    CHANNEL_ID              VARCHAR(10)     COMMENT 'Sales channel identifier (POS/WEB/etc.)',
+    PAYMENT_METHOD          VARCHAR(50)     COMMENT 'Payment method used',
+    CURRENCY                VARCHAR(3)      COMMENT 'Transaction currency code',
+    GROSS_AMOUNT            NUMBER(12,2)    COMMENT 'Total amount before discounts and tax',
+    TOTAL_DISCOUNT          NUMBER(12,2)    COMMENT 'Total discount applied',
+    TOTAL_TAX               NUMBER(12,2)    COMMENT 'Total tax amount',
+    NET_TOTAL               NUMBER(12,2)    COMMENT 'Final transaction amount',
+    CREATED_AT              DATE            COMMENT 'Record creation date from source',
+    __FILE_NAME             VARCHAR(500)    COMMENT 'Source file name from stage',
+    __ROW_NUMBER            NUMBER          COMMENT 'Row number within source file',
+    __LOAD_TS               TIMESTAMP_NTZ   COMMENT 'Timestamp when record was loaded'
+) COMMENT = 'Bronze layer sales transaction header with payment and totals';
 
 -- =====================================================
--- Data Loading - SALES_ITEM
--- =====================================================-- =====================================================
--- Silver Layer - REGION_MASTER Dynamic Table
--- Deduplication, data quality checks, incremental refresh
+-- SALES_ITEM Table
 -- =====================================================
-
-CREATE OR REPLACE DYNAMIC TABLE SALES_DEV.SILVER.REGION_MASTER
-    TARGET_LAG = DOWNSTREAM
-    WAREHOUSE = COMPUTE_WH
-    REFRESH_MODE = INCREMENTAL
-    INITIALIZE = ON_CREATE
-    COMMENT = 'Silver layer region master with deduplication and data quality validation'
-AS
-SELECT
-    REGION_CODE,
-    REGION_NAME,
-    IS_ACTIVE,
-    EFFECTIVE_START_DATE,
-    EFFECTIVE_END_DATE,
-    CREATED_AT,
-    SOURCE_SYSTEM,
-    
-    -- Data Quality Flags
-    CASE 
-        WHEN REGION_CODE IS NULL THEN FALSE
-        WHEN REGION_NAME IS NULL OR TRIM(REGION_NAME) = '' THEN FALSE
-        WHEN IS_ACTIVE NOT IN ('Y', 'N') THEN FALSE
-        WHEN EFFECTIVE_START_DATE IS NULL THEN FALSE
-        WHEN EFFECTIVE_END_DATE < EFFECTIVE_START_DATE THEN FALSE
-        ELSE TRUE
-    END AS IS_VALID_RECORD,
-    
-    -- Audit Columns
-    __FILE_NAME,
-    __ROW_NUMBER AS __SOURCE_ROW_NUMBER,
-    __LOAD_TS AS __BRONZE_LOAD_TS
-
-FROM SALES_DEV.BRONZE.REGION_MASTER
-
--- Deduplication: Keep latest record per REGION_CODE based on load timestamp
-QUALIFY ROW_NUMBER() OVER (
-    PARTITION BY REGION_CODE 
-    ORDER BY __LOAD_TS DESC, __ROW_NUMBER DESC
-) = 1;
-
--- =====================================================
--- Silver Layer - COUNTRY_MASTER Dynamic Table
--- Deduplication, data quality checks, incremental refresh
--- =====================================================
-
-CREATE OR REPLACE DYNAMIC TABLE SALES_DEV.SILVER.COUNTRY_MASTER
-    TARGET_LAG = DOWNSTREAM
-    WAREHOUSE = COMPUTE_WH
-    REFRESH_MODE = INCREMENTAL
-    INITIALIZE = ON_CREATE
-    COMMENT = 'Silver layer country master with deduplication and data quality validation'
-AS
-SELECT
-    COUNTRY_CODE,
-    COUNTRY_NAME,
-    REGION_CODE,
-    CURRENCY_CODE,
-    TAX_CODE,
-    PRIMARY_LANGUAGE,
-    TIMEZONE,
-    ECOMMERCE_SUPPORTED,
-    RETAIL_STORE_SUPPORTED,
-    MARKET_TIER,
-    
-    -- Data Quality Flag
-    CASE 
-        WHEN COUNTRY_CODE IS NULL THEN FALSE
-        WHEN COUNTRY_NAME IS NULL OR TRIM(COUNTRY_NAME) = '' THEN FALSE
-        WHEN REGION_CODE IS NULL THEN FALSE
-        WHEN CURRENCY_CODE IS NULL THEN FALSE
-        WHEN ECOMMERCE_SUPPORTED NOT IN ('Y', 'N') THEN FALSE
-        WHEN RETAIL_STORE_SUPPORTED NOT IN ('Y', 'N') THEN FALSE
-        ELSE TRUE
-    END AS IS_VALID_RECORD,
-    
-    -- Audit Columns
-    __FILE_NAME,
-    __ROW_NUMBER AS __SOURCE_ROW_NUMBER,
-    __LOAD_TS AS __BRONZE_LOAD_TS
-
-FROM SALES_DEV.BRONZE.COUNTRY_MASTER
-
--- Deduplication: Keep latest record per COUNTRY_CODE
-QUALIFY ROW_NUMBER() OVER (
-    PARTITION BY COUNTRY_CODE 
-    ORDER BY __LOAD_TS DESC, __ROW_NUMBER DESC
-) = 1;
-
--- =====================================================
--- Silver Layer - CURRENCY_MASTER Dynamic Table
--- Deduplication, data quality checks, incremental refresh
--- =====================================================
-
-CREATE OR REPLACE DYNAMIC TABLE SALES_DEV.SILVER.CURRENCY_MASTER
-    TARGET_LAG = DOWNSTREAM
-    WAREHOUSE = COMPUTE_WH
-    REFRESH_MODE = INCREMENTAL
-    INITIALIZE = ON_CREATE
-    COMMENT = 'Silver layer currency master with deduplication and data quality validation'
-AS
-SELECT
-    CURRENCY_CODE,
-    CURRENCY_NAME,
-    CURRENCY_SYMBOL,
-    MINOR_UNIT,
-    IS_ACTIVE,
-    EFFECTIVE_START_DATE,
-    EFFECTIVE_END_DATE,
-    CREATED_AT,
-    SOURCE_SYSTEM,
-    
-    -- Data Quality Flag
-    CASE 
-        WHEN CURRENCY_CODE IS NULL THEN FALSE
-        WHEN CURRENCY_NAME IS NULL OR TRIM(CURRENCY_NAME) = '' THEN FALSE
-        WHEN IS_ACTIVE NOT IN ('Y', 'N') THEN FALSE
-        WHEN EFFECTIVE_START_DATE IS NULL THEN FALSE
-        WHEN EFFECTIVE_END_DATE < EFFECTIVE_START_DATE THEN FALSE
-        ELSE TRUE
-    END AS IS_VALID_RECORD,
-    
-    -- Audit Columns
-    __FILE_NAME,
-    __ROW_NUMBER AS __SOURCE_ROW_NUMBER,
-    __LOAD_TS AS __BRONZE_LOAD_TS
-
-FROM SALES_DEV.BRONZE.CURRENCY_MASTER
-
--- Deduplication: Keep latest record per CURRENCY_CODE
-QUALIFY ROW_NUMBER() OVER (
-    PARTITION BY CURRENCY_CODE 
-    ORDER BY __LOAD_TS DESC, __ROW_NUMBER DESC
-) = 1;
-
--- =====================================================
--- Silver Layer - TAX_MASTER Dynamic Table
--- Deduplication, data quality checks, incremental refresh
--- =====================================================
-
-CREATE OR REPLACE DYNAMIC TABLE SALES_DEV.SILVER.TAX_MASTER
-    TARGET_LAG = DOWNSTREAM
-    WAREHOUSE = COMPUTE_WH
-    REFRESH_MODE = INCREMENTAL
-    INITIALIZE = ON_CREATE
-    COMMENT = 'Silver layer tax master with deduplication and data quality validation'
-AS
-SELECT
-    TAX_CODE,
-    TAX_TYPE,
-    TAX_RATE,
-    TAX_INCLUSIVE_FLAG,
-    EFFECTIVE_START_DATE,
-    EFFECTIVE_END_DATE,
-    IS_ACTIVE,
-    CREATED_AT,
-    SOURCE_SYSTEM,
-    
-    -- Data Quality Flag
-    CASE 
-        WHEN TAX_CODE IS NULL THEN FALSE
-        WHEN TAX_TYPE IS NULL OR TRIM(TAX_TYPE) = '' THEN FALSE
-        WHEN TAX_RATE IS NULL OR TAX_RATE < 0 OR TAX_RATE > 1 THEN FALSE
-        WHEN TAX_INCLUSIVE_FLAG NOT IN ('Y', 'N') THEN FALSE
-        WHEN IS_ACTIVE NOT IN ('Y', 'N') THEN FALSE
-        WHEN EFFECTIVE_START_DATE IS NULL THEN FALSE
-        WHEN EFFECTIVE_END_DATE < EFFECTIVE_START_DATE THEN FALSE
-        ELSE TRUE
-    END AS IS_VALID_RECORD,
-    
-    -- Audit Columns
-    __FILE_NAME,
-    __ROW_NUMBER AS __SOURCE_ROW_NUMBER,
-    __LOAD_TS AS __BRONZE_LOAD_TS
-
-FROM SALES_DEV.BRONZE.TAX_MASTER
-
--- Deduplication: Keep latest record per TAX_CODE
-QUALIFY ROW_NUMBER() OVER (
-    PARTITION BY TAX_CODE 
-    ORDER BY __LOAD_TS DESC, __ROW_NUMBER DESC
-) = 1;
+CREATE OR REPLACE TABLE SALES_DEV.BRONZE.SALES_ITEM (
+    TRANSACTION_LINE_ID     VARCHAR(20)     COMMENT 'Unique line item identifier',
+    TRANSACTION_ID          VARCHAR(50)     COMMENT 'Reference to sales header',
+    SKU_CODE                VARCHAR(30)     COMMENT 'Reference to product SKU',
+    QUANTITY                NUMBER(10)      COMMENT 'Quantity purchased',
+    UNIT_PRICE              NUMBER(12,2)    COMMENT 'Price per unit',
+    DISCOUNT_AMOUNT         NUMBER(12,2)    COMMENT 'Discount applied to line',
+    TAX_AMOUNT              NUMBER(12,2)    COMMENT 'Tax amount for line',
+    LINE_TOTAL              NUMBER(12,2)    COMMENT 'Total amount for line item',
+    CREATED_AT              DATE            COMMENT 'Record creation date from source',
+    __FILE_NAME             VARCHAR(500)    COMMENT 'Source file name from stage',
+    __ROW_NUMBER            NUMBER          COMMENT 'Row number within source file',
+    __LOAD_TS               TIMESTAMP_NTZ   COMMENT 'Timestamp when record was loaded'
+) COMMENT = 'Bronze layer sales transaction line items with product and pricing details';
